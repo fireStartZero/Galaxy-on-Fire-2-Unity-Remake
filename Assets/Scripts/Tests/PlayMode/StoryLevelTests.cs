@@ -21,7 +21,8 @@ namespace GoF2Remake.Tests
         {
             0, 1, 2, 5, 7, 14, 16, 21, 24, 25, 29, 36, 38, 40, 41, 44,           // main game
             45, 48, 49, 56, 64, 69, 73, 78, 79, 80, 81, 84,                    // Valkyrie
-            89, 91, 94, 102, 105, 114, 125, 135, 139, 144, 145, 154, 157, 158, 162,   // Supernova
+            87, 89, 91, 92, 94, 95, 97, 100, 102, 105, 106, 114, 120, 123, 125, 131,   // Supernova: every level with a
+            135, 137, 139, 142, 144, 145, 147, 154, 157, 158, 162,                 // Build case (95: the "Meanwhile..." cutscenes)
         };
 
         static IEnumerable<int> SmokeSteps() => Spread;
