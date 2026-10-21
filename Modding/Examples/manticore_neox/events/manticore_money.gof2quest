@@ -1,0 +1,243 @@
+{
+    "title": "Manticore - Following the Money",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_maw) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE - ACT II",
+                "zh": "蝎尾狮号 - 第二幕"
+            },
+            "subtitle": {
+                "en": "Chapter 6 - Following the Money",
+                "zh": "第六章 - 追踪资金"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "I traced the payments. They run through Nova Defence's books in Valtor, the next system over. The jumpgate at Haze Trading Post just opened the route.",
+                        "zh": "我追查了那些付款，它们经过新星防务在瓦尔托的账目，就在隔壁星系。薄雾贸易站的跃迁门刚刚开通了这条航线。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Someone inside Nova reached out to me. An accountant, Ines Marlowe. She says she has proof, and that she's scared.",
+                        "zh": "新星内部有人联系了我。一个会计，叫伊内丝·马洛。她说她有证据，而且她很害怕。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Scared accountants are the honest kind. Go to the Nova Defence Yard, meet her, and bring her out in one piece.",
+                        "zh": "会害怕的会计才是老实人。去新星防务船坞见她，把她完整地带出来。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "money_briefed"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:novagate",
+            "dock": true,
+            "objective": {
+                "en": "Jump to Valtor and dock at the Nova Defence Yard.",
+                "zh": "跃迁到瓦尔托，停靠新星防务船坞。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Ines Marlowe",
+                    "text": {
+                        "en": "You're the Manticore pilot? Good. Don't look at the cameras. Someone in this office has been moving money to pirates for two years.",
+                        "zh": "你就是蝎尾狮号的飞行员？好。别看摄像头。这间办公室里有人两年来一直在把钱转给海盗。"
+                    }
+                },
+                {
+                    "speaker": "terran female Ines Marlowe",
+                    "text": {
+                        "en": "The orders come from the top: Halvard Crane, Nova's director. I have copies, but they know I took them. I need to get off this station. Now.",
+                        "zh": "命令来自最高层：哈尔瓦德·克莱恩，新星的总监。我有副本，但他们知道是我拿的。我得离开这座空间站，马上。"
+                    }
+                },
+                {
+                    "speaker": "terran female Ines Marlowe",
+                    "text": {
+                        "en": "My shuttle is fuelled. Just stay close when we launch.",
+                        "zh": "我的穿梭机已经加满油了。起飞的时候跟紧我就行。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "marlowe_met"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:novagate"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:novagate",
+            "dock": false,
+            "objective": {
+                "en": "Launch and escort Ines Marlowe's shuttle.",
+                "zh": "起飞，护送伊内丝·马洛的穿梭机。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 15,
+            "race": "terran",
+            "count": 1,
+            "behaviour": "friendly",
+            "name": "Marlowe Shuttle"
+        },
+        {
+            "type": "shipfollow",
+            "ship": "Marlowe Shuttle",
+            "leader": "player",
+            "offset": "800 200 -600",
+            "escort": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Idris Kane",
+            "text": {
+                "en": "Ms Marlowe, this is Captain Kane, Nova security. Return to the yard. Your escort can leave now, or leave in pieces.",
+                "zh": "马洛女士，我是新星安保的凯恩上尉。请返回船坞。你的护航机现在可以走，或者碎成片再走。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:novagate",
+            "quiet": false,
+            "name": "Nova Security",
+            "ships": [
+                {
+                    "ship": 5,
+                    "count": 3,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Protect the shuttle from Nova security.",
+                "zh": "保护穿梭机，抵挡新星安保。"
+            }
+        },
+        {
+            "type": "if",
+            "condition": "alive(Marlowe Shuttle) == 0",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "Ines Marlowe was killed.",
+                        "zh": "伊内丝·马洛遇难了。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Idris Kane",
+            "text": {
+                "en": "Fine. Run to your carrier. We know where it is.",
+                "zh": "好吧。逃回你们的航母去吧。我们知道它在哪儿。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Ines Marlowe",
+            "text": {
+                "en": "I'm jumping for Trim. Thank you... I'll meet you on the Manticore.",
+                "zh": "我要跃迁去特里姆了。谢谢你……蝎尾狮号上见。"
+            }
+        },
+        {
+            "type": "shipaction",
+            "ship": "Marlowe Shuttle",
+            "action": "jump"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:novagate",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 15000,
+            "title": {
+                "en": "Witness rescued",
+                "zh": "证人获救"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "marlowe_out"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Ines Marlowe",
+                    "text": {
+                        "en": "The copies are encrypted with Crane's personal key. Without the ledger itself they prove nothing in court.",
+                        "zh": "这些副本用克莱恩的私人密钥加密了。没有账本本身，它们在法庭上什么也证明不了。"
+                    }
+                },
+                {
+                    "speaker": "terran female Ines Marlowe",
+                    "text": {
+                        "en": "But there's a way. The ledger was backed up on Nova couriers. Three of them went missing at Rustbelt Salvage last month. Pirate attack, officially.",
+                        "zh": "但还有办法。账本备份在新星的信使船上。上个月有三艘在锈带回收站失踪了。官方说是海盗袭击。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Officially. Ace, you know what to do. Find those wrecks before Crane cleans them up.",
+                        "zh": "官方说法。王牌，你知道该怎么做。赶在克莱恩清理掉之前找到那些残骸。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 8000,
+            "title": {
+                "en": "Chapter 6 complete",
+                "zh": "第六章 完成"
+            }
+        }
+    ]
+}

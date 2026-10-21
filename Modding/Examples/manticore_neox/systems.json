@@ -1,11 +1,40 @@
 [
     {
         "id": "trim",
-        "name": { "en": "Trim", "zh": "特里姆" },
+        "name": {
+            "en": "Trim",
+            "zh": "特里姆"
+        },
         "race": 0,
         "security": 1,
         "visible": true,
-        "position": [12, 90, 20],
-        "sky": 7
+        "position": [
+            12,
+            90,
+            20
+        ],
+        "sky": 7,
+        "gateStation": "manticore_neox:haze_post"
+    },
+    {
+        "id": "valtor",
+        "name": {
+            "en": "Valtor",
+            "zh": "瓦尔托"
+        },
+        "race": 0,
+        "security": 2,
+        "visible": true,
+        "available": "quest(manticore_maw) == 2",
+        "position": [
+            22,
+            84,
+            31
+        ],
+        "sky": 4,
+        "gates": [
+            "manticore_neox:trim"
+        ],
+        "gateStation": "manticore_neox:novagate"
     }
 ]

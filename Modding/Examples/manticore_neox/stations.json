@@ -60,5 +60,41 @@
         "planet": 20,
         "looksLike": 105,
         "interior": "vossk"
+    },
+    {
+        "id": "novagate",
+        "system": "manticore_neox:valtor",
+        "name": {
+            "en": "Nova Defence Yard",
+            "zh": "新星防务船坞"
+        },
+        "techLevel": 8,
+        "planet": 5,
+        "looksLike": 7,
+        "interior": "terran"
+    },
+    {
+        "id": "rustbelt",
+        "system": "manticore_neox:valtor",
+        "name": {
+            "en": "Rustbelt Salvage",
+            "zh": "锈带回收站"
+        },
+        "techLevel": 3,
+        "planet": 14,
+        "looksLike": 40,
+        "interior": "terran"
+    },
+    {
+        "id": "spire",
+        "system": "manticore_neox:valtor",
+        "name": {
+            "en": "Paragon Spire",
+            "zh": "典范尖塔"
+        },
+        "techLevel": 10,
+        "planet": 1,
+        "looksLike": 37,
+        "interior": "terran"
     }
 ]
