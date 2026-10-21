@@ -664,6 +664,11 @@ namespace GoF2Remake.World
             harval.SetVisible(false);
             harval.CloakingPossible = false;
             ArmHarval(harval);
+            // Remake: Harval survives 157 (he is 158's duel, and states 6-12 place him, show him and make him fire). The
+            // ending triggers below a quarter of his hull, but one big hit (a nuke, the Liberator) could take him from above
+            // it to 0 in one frame: the hull stops at 1 instead, which still triggers it.
+            var harvalHp = harval.Target.hitpoints;
+            if (harvalHp != null) harval.Target.SaveFromDeath = () => { harvalHp.hull = 1; harval.Target.hp = 1f; return true; };
             // Alice: race 3, AI off, hidden and inactive (no always-friend, normal hit points).
             var alice = c.SpawnShip(3, 20, new Vector3(50000, 50000, 50000), false, s => { s.nameText = 1623; s.inactive = true; s.noLoot = true; });
             alice.SetVisible(false);
@@ -2254,6 +2259,16 @@ namespace GoF2Remake.World
             sh.dockPhase = 0;
         }
 
+        /// <summary>Frees the pad a destroyed or vanished shuttle held, without touching the ship.</summary>
+        void ReleasePad(Shuttle sh)
+        {
+            var obj = sh.dockAt != null && sh.leg < sh.dockAt.Length ? sh.dockAt[sh.leg] : null;
+            if (obj != null) SpacePoints.Free(obj, sh.taken);
+            sh.taken = -1;
+            sh.dockPhase = 0;
+            sh.waiting = false;
+        }
+
         /// <summary>The loops station -> waypoint -> drop-off with their docking times; at the drop-off the evacuees go aboard
         /// the freighter / carrier (1 per 1500 ms, the Rhinos 1 per 200 ms). At 94 they stop unloading once the rest fits
         /// the player's cabins (the player brings the last load).</summary>
@@ -2262,7 +2277,13 @@ namespace GoF2Remake.World
             foreach (var sh in shuttles)
             {
                 var s = sh.ship;
-                if (s == null || !s.Target.Alive || s.Gone || sh.finished) continue;
+                if (s == null || !s.Target.Alive || s.Gone || sh.finished)
+                {
+                    // Remake: a shuttle shot down (or gone) on a pad gives it back (SpacePoints::giveFree), else the pad
+                    // stays taken for the level and the player's docking skips it.
+                    if (sh.taken >= 0) ReleasePad(sh);
+                    continue;
+                }
                 var target = sh.points[sh.leg];
                 if (sh.waiting)
                 {
