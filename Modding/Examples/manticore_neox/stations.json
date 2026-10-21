@@ -168,5 +168,29 @@
         "planet": 20,
         "looksLike": 105,
         "interior": "terran"
+    },
+    {
+        "id": "exchange",
+        "system": "manticore_neox:meridian",
+        "name": {
+            "en": "Halcyon Exchange",
+            "zh": "哈尔西恩交易所"
+        },
+        "techLevel": 10,
+        "planet": 4,
+        "looksLike": 40,
+        "interior": "terran"
+    },
+    {
+        "id": "foundry",
+        "system": "manticore_neox:meridian",
+        "name": {
+            "en": "Gate Zero Foundry",
+            "zh": "零号门铸造厂"
+        },
+        "techLevel": 8,
+        "planet": 20,
+        "looksLike": 107,
+        "interior": "terran"
     }
 ]

@@ -78,5 +78,26 @@
             "manticore_neox:rigant"
         ],
         "gateStation": "manticore_neox:remnant_yard"
+    },
+    {
+        "id": "meridian",
+        "name": {
+            "en": "Meridian Reach",
+            "zh": "子午边域"
+        },
+        "race": 0,
+        "security": 1,
+        "visible": true,
+        "available": "quest(manticore_board) == 2",
+        "position": [
+            62,
+            70,
+            4
+        ],
+        "sky": 9,
+        "gates": [
+            "manticore_neox:vortex_core"
+        ],
+        "gateStation": "manticore_neox:exchange"
     }
 ]

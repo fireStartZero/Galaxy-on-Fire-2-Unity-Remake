@@ -1,0 +1,301 @@
+{
+    "title": "Manticore - Gate Zero",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_beyond) == 2",
+    "variables": [
+        {
+            "name": "cold",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 19 - Gate Zero",
+                "zh": "第十九章 - 零号门"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "The Foundry's refined Glow is held in three condenser hulks outside the station. Overload their cooling and the Glow goes inert. Shoot them and it goes off.",
+                        "zh": "铸造厂精炼出的光晶储存在站外的三艘冷凝废船里。让它们的冷却过载，光晶就会失去活性。要是开枪打它们，它就会炸。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "So: hack, don't shoot. And the Foundry's guard will know the moment the first one goes cold.",
+                        "zh": "所以：要破解，别开枪。第一艘一冷下来，铸造厂的守卫就会知道。"
+                    }
+                },
+                {
+                    "speaker": "nivelian female Nheeta",
+                    "text": {
+                        "en": "I've run cargo near Gate Zero. Their foreman, Vex, ran a slave mine before the Board hired him. Nobody will cry for him.",
+                        "zh": "我在零号门附近跑过货。他们的工头维克斯在被董事会雇用之前经营过一座奴工矿。没人会为他哭。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "foundry_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:foundry"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:foundry",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the Gate Zero Foundry.",
+                "zh": "飞往零号门铸造厂。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 1,
+            "behaviour": "friendly",
+            "name": "Hayley"
+        },
+        {
+            "type": "shipfollow",
+            "ship": "Hayley",
+            "leader": "player",
+            "offset": "-800 0 -600",
+            "escort": true
+        },
+        {
+            "type": "wreck",
+            "race": "terran",
+            "name": "Condenser 1",
+            "at": "-8000 0 30000"
+        },
+        {
+            "type": "wreck",
+            "race": "terran",
+            "name": "Condenser 2",
+            "at": "0 5000 36000"
+        },
+        {
+            "type": "wreck",
+            "race": "terran",
+            "name": "Condenser 3",
+            "at": "8000 -3000 30000"
+        },
+        {
+            "type": "on",
+            "trigger": "hacked",
+            "steps": [
+                {
+                    "type": "set",
+                    "variable": "cold",
+                    "value": "cold + 1"
+                },
+                {
+                    "type": "radio",
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Condenser inert. {cold} of 3.",
+                        "zh": "冷凝器已失活。{cold} / 3。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "timer",
+            "seconds": 240,
+            "label": {
+                "en": "First device ships",
+                "zh": "第一个装置出厂"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:foundry",
+            "text": {
+                "en": "Hack the three Glow condensers within 4 minutes.",
+                "zh": "在4分钟内破解三艘光晶冷凝器。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "cold >= 1"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Foreman Vex",
+            "text": {
+                "en": "Someone's freezing my stock! Every gun on the line, now!",
+                "zh": "有人在冻我的货！所有炮手，马上上线！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:foundry",
+            "quiet": false,
+            "name": "Foundry Guard",
+            "ships": [
+                {
+                    "ship": 28,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 5,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Fight off the Foundry's guard.",
+                "zh": "击退铸造厂的守卫。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "cold >= 3",
+            "timeout": 240
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "if",
+            "condition": "cold < 3",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "A device left the Foundry.",
+                        "zh": "一个装置离开了铸造厂。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Foreman Vex",
+            "text": {
+                "en": "Do you know what that stock was worth? I'll take it out of your hide!",
+                "zh": "你知道那批货值多少钱吗？我要从你身上扒回来！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:foundry",
+            "quiet": false,
+            "name": "Foreman Vex",
+            "ships": [
+                {
+                    "ship": 38,
+                    "count": 1,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 22,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Foreman Vex.",
+                "zh": "击败工头维克斯。"
+            }
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:foundry",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Hayley Snocom",
+            "text": {
+                "en": "Foundry's dark. No more devices. Good flying, partner.",
+                "zh": "铸造厂熄火了，不会再有装置了。飞得漂亮，搭档。"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 40000,
+            "title": {
+                "en": "Foundry shut down",
+                "zh": "铸造厂被关停"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "vex_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "The Board just moved. Every contract fleet it still holds is jumping for Neox. Target: Phoenix Station, Trim.",
+                        "zh": "董事会出手了。它手上剩下的每一支合同舰队都在向尼奥克斯跃迁。目标：特里姆的凤凰空间站。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Phoenix. Where all of this started for us. They want to make an example of the sector's last free station.",
+                        "zh": "凤凰站。对我们来说一切开始的地方。他们想拿星区最后一座自由空间站杀鸡儆猴。"
+                    }
+                },
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "Then call in every debt we have. The Nova fleet. Martha's militia. And my clan at Cornucopia, if they will still hear my voice.",
+                        "zh": "那就把我们所有的人情都讨回来。新星舰队。玛莎的民兵。还有丰饶角我的氏族，如果他们还肯听我说话的话。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 14000,
+            "title": {
+                "en": "Chapter 19 complete",
+                "zh": "第十九章 完成"
+            }
+        }
+    ]
+}

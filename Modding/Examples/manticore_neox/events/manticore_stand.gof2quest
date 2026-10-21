@@ -1,0 +1,277 @@
+{
+    "title": "Manticore - The Stand",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_foundry) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 20 - The Stand at Phoenix",
+                "zh": "第二十章 - 凤凰站死守"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "The clan answered. They have not forgiven us for Cornucopia. But they hate the Board more. Vossk wings are on their way to Phoenix.",
+                        "zh": "氏族回应了。他们还没原谅我们在丰饶角干的事，但他们更恨董事会。沃斯克战机联队正在赶往凤凰站。"
+                    }
+                },
+                {
+                    "speaker": "terran female Martha Penbury",
+                    "text": {
+                        "en": "Phoenix militia is in the air, all of us, even the tugs. Manticore, this time it's our turn to stand with you.",
+                        "zh": "凤凰民兵全员升空，连拖船都上了。蝎尾狮号，这一次轮到我们和你们并肩作战。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Hold Phoenix for three minutes. That's how long Nova needs to get here. Three minutes, ace.",
+                        "zh": "守住凤凰站三分钟。新星舰队需要这么久才能赶到。三分钟，王牌。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "stand_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:phoenix"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:phoenix",
+            "dock": false,
+            "objective": {
+                "en": "Fly to Phoenix Station in Trim.",
+                "zh": "飞往特里姆的凤凰空间站。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 3,
+            "behaviour": "friendly",
+            "name": "Phoenix Militia"
+        },
+        {
+            "type": "spawn",
+            "ship": 9,
+            "race": "vossk",
+            "count": 3,
+            "behaviour": "friendly",
+            "name": "Clan Wing"
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 1,
+            "behaviour": "friendly",
+            "name": "Hayley"
+        },
+        {
+            "type": "shipfollow",
+            "ship": "Hayley",
+            "leader": "player",
+            "offset": "-800 0 -600",
+            "escort": true
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "Board contract fleets inbound! Here they come!",
+                "zh": "董事会的合同舰队来了！他们到了！"
+            }
+        },
+        {
+            "type": "timer",
+            "seconds": 180,
+            "label": {
+                "en": "Nova fleet arrives",
+                "zh": "新星舰队抵达"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:phoenix",
+            "text": {
+                "en": "Hold Phoenix Station for 3 minutes.",
+                "zh": "守住凤凰空间站3分钟。"
+            }
+        },
+        {
+            "type": "parallel",
+            "steps": [
+                {
+                    "type": "spawn",
+                    "ship": 22,
+                    "race": "terran",
+                    "count": 3,
+                    "behaviour": "enemy",
+                    "name": "Board Fleet"
+                },
+                {
+                    "type": "wait",
+                    "seconds": 45
+                },
+                {
+                    "type": "spawn",
+                    "ship": 28,
+                    "race": "terran",
+                    "count": 3,
+                    "behaviour": "enemy",
+                    "name": "Board Fleet"
+                },
+                {
+                    "type": "wait",
+                    "seconds": 45
+                },
+                {
+                    "type": "spawn",
+                    "ship": 54,
+                    "race": "pirate",
+                    "count": 3,
+                    "behaviour": "enemy",
+                    "name": "Board Fleet"
+                },
+                {
+                    "type": "wait",
+                    "seconds": 45
+                },
+                {
+                    "type": "spawn",
+                    "ship": 63,
+                    "race": "pirate",
+                    "count": 2,
+                    "behaviour": "enemy",
+                    "name": "Board Fleet"
+                }
+            ]
+        },
+        {
+            "type": "wait",
+            "seconds": 180
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Nova Wing Leader",
+            "text": {
+                "en": "Nova Defence fleet, weapons free! Phoenix, you're not alone anymore!",
+                "zh": "新星防务舰队，自由开火！凤凰站，你们不再孤单了！"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 28,
+            "race": "terran",
+            "count": 4,
+            "behaviour": "friendly",
+            "name": "Nova Fleet"
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:phoenix",
+            "text": {
+                "en": "Destroy the rest of the Board's fleet.",
+                "zh": "消灭董事会剩下的舰队。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Board Fleet) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:phoenix",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Martha Penbury",
+            "text": {
+                "en": "They're running! Phoenix stands! Drinks are on the station tonight, every last one of you!",
+                "zh": "他们逃了！凤凰站守住了！今晚的酒全站请客，你们每一个人都有份！"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 50000,
+            "title": {
+                "en": "Phoenix held",
+                "zh": "凤凰站守住了"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "phoenix_held"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "The Board has nothing left to send. Chairman Aurel Vane is still at the Halcyon Exchange, aboard his own flagship, packing up.",
+                        "zh": "董事会已经无兵可派了。主席奥雷尔·瓦恩还在哈尔西恩交易所，在他自己的旗舰上，正在收拾东西准备跑路。"
+                    }
+                },
+                {
+                    "speaker": "terran female Hayley Snocom",
+                    "text": {
+                        "en": "The man who signed the Shattering is packing a bag. No. He doesn't get to leave.",
+                        "zh": "签下“碎裂”的人正在收拾行李。不行。他别想走。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Agreed. One last flight, all of us together.",
+                        "zh": "同意。最后一次出击，我们所有人一起。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 16000,
+            "title": {
+                "en": "Chapter 20 complete",
+                "zh": "第二十章 完成"
+            }
+        }
+    ]
+}
