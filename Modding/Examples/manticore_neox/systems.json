@@ -1,0 +1,11 @@
+[
+    {
+        "id": "trim",
+        "name": { "en": "Trim", "zh": "特里姆" },
+        "race": 0,
+        "security": 1,
+        "visible": true,
+        "position": [12, 90, 20],
+        "sky": 7
+    }
+]

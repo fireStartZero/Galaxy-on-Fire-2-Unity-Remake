@@ -1,0 +1,11 @@
+{
+    "id": "manticore_neox",
+    "name": { "en": "Manticore: Neox Frontier", "zh": "蝎尾狮号：尼奥克斯边境" },
+    "version": "0.1",
+    "author": "fireStartZero",
+    "description": {
+        "en": "A fan tribute to Galaxy on Fire 3: Manticore, told with GoF2's art. Join Bryce Vantok's mercenary carrier in the lawless Neox frontier and take the first step of the hunt for the Gr'Gath warlord Sh'Gaal. The opening chapter: a new pilot in hangar 18, an escort at Phoenix Station and the first Gr'Gath boss. Story paraphrased, not GoF3's own text.",
+        "zh": "一份《银河火焰3：蝎尾狮号》的同人致敬，用 GoF2 的美术重新讲述。加入布莱斯·万托克的雇佣兵航母，在无法无天的尼奥克斯边境，迈出追猎格尔加斯军阀希加尔的第一步。开场章节：18号机库的新飞行员、凤凰空间站的护航，以及第一个格尔加斯头目。剧情为转述改写，非 GoF3 原文。"
+    },
+    "credits": "Story after Galaxy on Fire 3: Manticore (Fishlabs / Deep Silver), retold in our own words. Uses only the assets of the Galaxy on Fire 2 remake."
+}

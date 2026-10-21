@@ -1,0 +1,16 @@
+{
+    "name": { "en": "Manticore", "zh": "蝎尾狮号" },
+    "description": {
+        "en": "The Neox frontier, months after the Shattering. Fly for Bryce Vantok's mercenary carrier and hunt the Gr'Gath.",
+        "zh": "“碎裂”事件数月后的尼奥克斯边境。为布莱斯·万托克的雇佣兵航母效力，追猎格尔加斯海盗。"
+    },
+    "startStation": "manticore_neox:manticore",
+    "startShip": 5,
+    "credits": 15000,
+    "equipment": [0, 0, 50, 81],
+    "cargo": [ { "item": 122, "amount": 4 } ],
+    "standing": [30, 0],
+    "quest": "manticore_hangar18",
+    "galaxy": "mod",
+    "trafficShips": { "pirate": ["9", "63"] }
+}

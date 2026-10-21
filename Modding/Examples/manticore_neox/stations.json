@@ -1,0 +1,22 @@
+[
+    {
+        "id": "manticore", "system": "manticore_neox:trim",
+        "name": { "en": "The Manticore", "zh": "蝎尾狮号" },
+        "techLevel": 6, "planet": 3,
+        "looksLike": 70,
+        "model": "gof2:sn_carrier_terran_1", "collision": "box",
+        "interior": "terran"
+    },
+    {
+        "id": "phoenix", "system": "manticore_neox:trim",
+        "name": { "en": "Phoenix Station", "zh": "凤凰空间站" },
+        "techLevel": 5, "planet": 9,
+        "looksLike": 70, "interior": "terran"
+    },
+    {
+        "id": "haze_post", "system": "manticore_neox:trim",
+        "name": { "en": "Haze Trading Post", "zh": "薄雾贸易站" },
+        "techLevel": 3, "planet": 17,
+        "looksLike": 41, "interior": "nivelian"
+    }
+]
