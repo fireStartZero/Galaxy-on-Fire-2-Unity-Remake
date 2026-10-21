@@ -1,0 +1,235 @@
+{
+    "title": "Manticore - The Board",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_blackwell) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 17 - The Board",
+                "zh": "第十七章 - 董事会"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Blackwell's records name the Board's courier: an armed yacht that collects the Hold's reports. It's due at Blackwell any minute, and it doesn't know the Hold has fallen.",
+                        "zh": "黑井的记录点出了董事会的信使：一艘武装游艇，专门来取监狱的报告。它随时会到黑井，而且还不知道监狱已经失守了。"
+                    }
+                },
+                {
+                    "speaker": "terran female Hayley Snocom",
+                    "text": {
+                        "en": "Give me a fighter. I know those yachts. I've watched them come and go for years from a cell window.",
+                        "zh": "给我一架战机。我认识那些游艇。我在牢房的窗口看了它们好几年。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "You'll fly with our ace, Snocom. Bring that yacht back with its data core in one piece.",
+                        "zh": "你和我们的王牌一起飞，斯诺科姆。把那艘游艇连同数据核心完整地带回来。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "board_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:blackwell"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:blackwell",
+            "dock": false,
+            "objective": {
+                "en": "Fly to Blackwell Hold.",
+                "zh": "飞往黑井监狱。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 1,
+            "behaviour": "friendly",
+            "name": "Hayley"
+        },
+        {
+            "type": "shipfollow",
+            "ship": "Hayley",
+            "leader": "player",
+            "offset": "-800 0 -600",
+            "escort": true
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Hayley Snocom",
+            "text": {
+                "en": "Styx Two on your wing. Feels good to fly again.",
+                "zh": "冥河二号在你僚位。重新飞行的感觉真好。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:blackwell",
+            "quiet": false,
+            "name": "Board Guard",
+            "ships": [
+                {
+                    "ship": 28,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 22,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy the yacht's guard.",
+                "zh": "消灭游艇的护卫。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Board Envoy",
+            "text": {
+                "en": "This was a profitable sector. You have made it expensive. The Board does not forget expenses.",
+                "zh": "这本来是个赚钱的星区。你们让它变得很昂贵。董事会从不忘记开支。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:blackwell",
+            "quiet": false,
+            "name": "Board Yacht",
+            "ships": [
+                {
+                    "ship": 37,
+                    "count": 1,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Disable the Board's yacht.",
+                "zh": "击瘫董事会的游艇。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "The yacht's crew ejected and wiped most of the core. Most. I have one name and a direction: out past Neox, beyond any chart.",
+                "zh": "游艇的船员弹射了，还抹掉了大部分核心数据。大部分而已。我拿到了一个名字和一个方向：尼奥克斯之外，超出任何星图。"
+            }
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:blackwell",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 45000,
+            "title": {
+                "en": "Board courier stopped",
+                "zh": "董事会信使被截"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "yacht_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "ACT IV COMPLETE",
+                "zh": "第四幕 完成"
+            },
+            "subtitle": {
+                "en": "Hayley Snocom is home.",
+                "zh": "海莉·斯诺科姆回家了。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "The Manticore was a ship with no fleet. Now it has a crew, a Grey genius, a smuggler on the payroll and the pilot it was named after.",
+                        "zh": "蝎尾狮号曾是一艘没有舰队的船。如今它有了船员、一个灰人天才、一个领薪水的走私贩，还有那位让它得名的飞行员。"
+                    }
+                },
+                {
+                    "speaker": "terran female Hayley Snocom",
+                    "text": {
+                        "en": "Named after me? Commander, that's either an honour or a curse.",
+                        "zh": "以我命名？指挥官，这要么是荣誉，要么是诅咒。"
+                    }
+                },
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "The Board's direction leads past every jumpgate in Neox. My drive can go farther. For once, let me build something worth building.",
+                        "zh": "董事会的方向越过了尼奥克斯的每一道跃迁门。我的引擎能走得更远。就这一次，让我造点值得造的东西。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Then we go together. All of us.",
+                        "zh": "那我们就一起去。所有人。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Rest up, ace. The sector is quiet tonight. Tomorrow, we go looking for the Board.",
+                        "zh": "休息吧，王牌。今晚星区很安静。明天，我们去找董事会。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 60000,
+            "title": {
+                "en": "Act IV complete",
+                "zh": "第四幕 完成"
+            }
+        }
+    ]
+}

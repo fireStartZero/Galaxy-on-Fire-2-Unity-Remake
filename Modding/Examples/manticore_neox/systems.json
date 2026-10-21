@@ -57,5 +57,26 @@
             "manticore_neox:porros"
         ],
         "gateStation": "manticore_neox:driftwood"
+    },
+    {
+        "id": "vortex_core",
+        "name": {
+            "en": "Vortex Core",
+            "zh": "漩涡核心"
+        },
+        "race": 1,
+        "security": 3,
+        "visible": true,
+        "available": "quest(manticore_eclipse) == 2",
+        "position": [
+            48,
+            100,
+            10
+        ],
+        "sky": 16,
+        "gates": [
+            "manticore_neox:rigant"
+        ],
+        "gateStation": "manticore_neox:remnant_yard"
     }
 ]

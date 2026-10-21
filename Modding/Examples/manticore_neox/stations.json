@@ -144,5 +144,29 @@
         "planet": 3,
         "looksLike": 37,
         "interior": "terran"
+    },
+    {
+        "id": "remnant_yard",
+        "system": "manticore_neox:vortex_core",
+        "name": {
+            "en": "Remnant Yard",
+            "zh": "残党船坞"
+        },
+        "techLevel": 6,
+        "planet": 8,
+        "looksLike": 26,
+        "interior": "vossk"
+    },
+    {
+        "id": "blackwell",
+        "system": "manticore_neox:vortex_core",
+        "name": {
+            "en": "Blackwell Hold",
+            "zh": "黑井监狱"
+        },
+        "techLevel": 7,
+        "planet": 20,
+        "looksLike": 105,
+        "interior": "terran"
     }
 ]

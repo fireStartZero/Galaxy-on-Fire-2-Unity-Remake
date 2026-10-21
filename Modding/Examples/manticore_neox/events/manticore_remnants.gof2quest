@@ -1,0 +1,239 @@
+{
+    "title": "Manticore - Remnants",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_eclipse) == 2",
+    "variables": [
+        {
+            "name": "logs",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE - ACT IV",
+                "zh": "蝎尾狮号 - 第四幕"
+            },
+            "subtitle": {
+                "en": "Chapter 14 - Remnants",
+                "zh": "第十四章 - 残党"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Eclipse's prisoner list is old, but one entry is fresh. A transport left the Eye an hour ago, bound for the Vortex Core. Its manifest lists 'H. Snocom, pilot'.",
+                        "zh": "日蚀的俘虏名单很旧，但有一条是新的。一艘运输船一小时前离开漩涡之眼，前往漩涡核心。它的货单上写着“H. 斯诺科姆，飞行员”。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "She's alive. After all these years. Commander, please.",
+                        "zh": "她还活着。这么多年了。指挥官，求你了。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Indigo Brink's remnants are rallying under a Vossk boarder called T'Hebuk. Catch that transport before it reaches them. Disable it, don't destroy it.",
+                        "zh": "靛蓝深渊的残党正聚集在一个叫提赫布克的沃斯克登舰兵手下。在运输船跟他们会合之前截住它。击瘫它，别打爆它。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "remnants_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:the_eye"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:the_eye",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the Eye in the Rigant Vortex.",
+                "zh": "飞往瑞甘特漩涡的漩涡之眼。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "The transport's escort spotted you. Clear them out, then I'll guide you to the transport.",
+                "zh": "运输船的护航发现你了。先清掉他们，我再引导你去找运输船。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:the_eye",
+            "quiet": false,
+            "name": "Remnant Escort",
+            "ships": [
+                {
+                    "ship": 54,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 9,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy the transport's escort.",
+                "zh": "消灭运输船的护航。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "pirate Transport Pilot",
+            "text": {
+                "en": "Scuttle charges armed! If I can't deliver the prisoners, nobody gets them!",
+                "zh": "自毁装置已启动！我送不到犯人，谁也别想要！"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "He blew the engines, not the hull. It's a drifting wreck now. Hack its log before the core cooks off.",
+                "zh": "他炸的是引擎，不是船体。它现在是个漂流的残骸。赶在核心过热之前破解它的日志。"
+            }
+        },
+        {
+            "type": "wreck",
+            "race": "pirate",
+            "name": "Prison Transport",
+            "at": "2000 1000 34000"
+        },
+        {
+            "type": "on",
+            "trigger": "hacked",
+            "steps": [
+                {
+                    "type": "set",
+                    "variable": "logs",
+                    "value": "1"
+                }
+            ]
+        },
+        {
+            "type": "timer",
+            "seconds": 120,
+            "label": {
+                "en": "Core overload",
+                "zh": "核心过载"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:the_eye",
+            "text": {
+                "en": "Hack the prison transport's log within 2 minutes.",
+                "zh": "在2分钟内破解囚犯运输船的日志。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "logs > 0",
+            "timeout": 120
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "if",
+            "condition": "logs < 1",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "The transport's core blew. The log is lost.",
+                        "zh": "运输船的核心爆炸了，日志丢失。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "Got it. The prisoners were already moved. They're at Blackwell Hold, deep in the Vortex Core. The jump route runs through the Remnant Yard.",
+                "zh": "拿到了。犯人已经被转移走了。他们在黑井监狱，漩涡核心深处。跃迁航线要经过残党船坞。"
+            }
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:the_eye",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 26000,
+            "title": {
+                "en": "Transport log recovered",
+                "zh": "运输船日志已取回"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "log_recovered"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "The Vortex Core is where the anomaly is strongest. Ordinary jump drives scatter there. I can tune the Manticore's drive. It will take one long night.",
+                        "zh": "漩涡核心是异常最强的地方。普通的跃迁引擎到了那里会失控。我可以校准蝎尾狮号的引擎。需要一整夜。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then you have one night, Khador. And you, ace, get some sleep.",
+                        "zh": "那你就有一夜的时间，卡多尔。王牌，你去睡一觉。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 10000,
+            "title": {
+                "en": "Chapter 14 complete",
+                "zh": "第十四章 完成"
+            }
+        }
+    ]
+}

@@ -1,0 +1,276 @@
+{
+    "title": "Manticore - The Remnant Yard",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_remnants) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 15 - The Remnant Yard",
+                "zh": "第十五章 - 残党船坞"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "The drive is tuned. The route is open as far as the Remnant Yard. Beyond it, T'Hebuk controls every path to Blackwell Hold.",
+                        "zh": "引擎校准好了。航线一直通到残党船坞。再往后，通往黑井监狱的每条路都在提赫布克手里。"
+                    }
+                },
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "T'Hebuk was cast out of his clan for boarding a medical ship. He takes ships, not lives. He will try to take ours.",
+                        "zh": "提赫布克因为登上一艘医疗船而被逐出氏族。他抢的是船，不是命。他会想抢我们的船。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then he'll find the Manticore has teeth. Take the Yard, ace.",
+                        "zh": "那他就会发现蝎尾狮号是带牙的。王牌，拿下船坞。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "yard_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:remnant_yard"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:remnant_yard",
+            "dock": false,
+            "objective": {
+                "en": "Jump to the Vortex Core and fly to the Remnant Yard.",
+                "zh": "跃迁到漩涡核心，飞往残党船坞。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk T'Hebuk",
+            "text": {
+                "en": "A Terran fighter. Small, but fast. I will hang it on my wall.",
+                "zh": "一架人类战机。小，但是快。我要把它挂在我的墙上。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:remnant_yard",
+            "quiet": false,
+            "name": "Yard Guard",
+            "ships": [
+                {
+                    "ship": 9,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 23,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy the Yard's guard.",
+                "zh": "消灭船坞的守卫。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "Boarding pods launched toward the Manticore! Shoot them down before they latch on!",
+                "zh": "登舰舱正朝蝎尾狮号发射！在它们吸附上来之前击落！"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 2,
+            "race": "pirate",
+            "count": 4,
+            "behaviour": "enemy",
+            "name": "Boarding Pod"
+        },
+        {
+            "type": "timer",
+            "seconds": 90,
+            "label": {
+                "en": "Pods reach the Manticore",
+                "zh": "登舰舱抵达蝎尾狮号"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:remnant_yard",
+            "text": {
+                "en": "Destroy the boarding pods within 90 seconds.",
+                "zh": "在90秒内摧毁登舰舱。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Boarding Pod) == 0",
+            "timeout": 90
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "if",
+            "condition": "alive(Boarding Pod) > 0",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "T'Hebuk's boarders reached the Manticore.",
+                        "zh": "提赫布克的登舰兵登上了蝎尾狮号。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk T'Hebuk",
+            "text": {
+                "en": "You burn my pods? Then I take your ship myself.",
+                "zh": "你烧了我的登舰舱？那我亲自来抢你的船。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 54,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "T'Hebuk Wing"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:remnant_yard",
+            "quiet": false,
+            "name": "T'Hebuk",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat T'Hebuk.",
+                "zh": "击败提赫布克。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:remnant_yard",
+            "text": {
+                "en": "Finish off T'Hebuk's wing.",
+                "zh": "消灭提赫布克的僚机。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(T'Hebuk Wing) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:remnant_yard",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk T'Hebuk",
+            "text": {
+                "en": "Blackwell... has its own guards... you will not walk out...",
+                "zh": "黑井……有自己的守卫……你们走不出来的……"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 30000,
+            "title": {
+                "en": "Remnant Yard taken",
+                "zh": "残党船坞被攻占"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "thebuk_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Blackwell Hold is a fortress, and its guns cover every approach. A frontal attack would get the prisoners killed.",
+                        "zh": "黑井监狱是座堡垒，它的炮火覆盖每一条接近路线。正面强攻会害死里面的犯人。"
+                    }
+                },
+                {
+                    "speaker": "nivelian female Nheeta",
+                    "text": {
+                        "en": "Then don't come from the front. I fly supplies into Blackwell every week. For the right price, my hauler has room for one fighter in its shadow.",
+                        "zh": "那就别从正面来。我每周都给黑井送补给。只要价钱合适，我的运输船的影子里能藏一架战机。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Nheeta. She used to run cargo for the Grey Shadow.",
+                        "zh": "妮塔。她以前给灰影跑过货。"
+                    }
+                },
+                {
+                    "speaker": "nivelian female Nheeta",
+                    "text": {
+                        "en": "The Grey Shadow is gone. A smuggler needs new friends. Meet me at Blackwell's outer marker.",
+                        "zh": "灰影已经没了。走私贩需要新朋友。在黑井的外围信标见我。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 11000,
+            "title": {
+                "en": "Chapter 15 complete",
+                "zh": "第十五章 完成"
+            }
+        }
+    ]
+}
