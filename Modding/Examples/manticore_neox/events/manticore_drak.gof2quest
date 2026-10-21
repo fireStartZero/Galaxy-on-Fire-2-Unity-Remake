@@ -1,0 +1,233 @@
+{
+    "title": "Manticore - Hit and Run",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_haze) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 4 - Hit and Run",
+                "zh": "第四章 - 突袭"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Contacts on long range! A Gr'Gath strike group, heading straight for us. That's D'Rak's signature.",
+                        "zh": "远程雷达有目标！一支格尔加斯突击队正直奔我们而来。是德拉克的识别信号。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "All hands, battle stations. Ace, launch now. The Manticore's guns can't cover everything. Keep those bombers off my hull.",
+                        "zh": "全体人员，进入战斗位置。王牌，立刻起飞。蝎尾狮号的炮火顾不过来，别让那些轰炸机碰我的船壳。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "drak_alarm"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": false,
+            "objective": {
+                "en": "Launch and defend the Manticore.",
+                "zh": "起飞，保卫蝎尾狮号。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 2,
+            "behaviour": "friendly",
+            "name": "Manticore Wing"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Bryce Vantok",
+            "text": {
+                "en": "Two of ours are with you. First wave, coming in low. Go!",
+                "zh": "我们的两架战机跟着你。第一波从下方过来了。上！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:manticore",
+            "quiet": false,
+            "name": "Gr'Gath Bomber",
+            "ships": [
+                {
+                    "ship": 2,
+                    "count": 4,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Stop the first wave.",
+                "zh": "拦截第一波攻击。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Saya",
+            "text": {
+                "en": "First wave down. Second group is bigger. They brought heavy fighters.",
+                "zh": "第一波解决了。第二批规模更大，带着重型战机。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:manticore",
+            "quiet": false,
+            "name": "Gr'Gath Raider",
+            "ships": [
+                {
+                    "ship": 23,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 9,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Stop the second wave.",
+                "zh": "拦截第二波攻击。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk D'Rak",
+            "text": {
+                "en": "Your carrier is old and slow, human. I will crack it open like a shell, and Sh'Gaal will feast.",
+                "zh": "你们的航母又老又慢，人类。我要像敲碎甲壳一样把它砸开，让希加尔饱餐一顿。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 63,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "D'Rak Guard"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:manticore",
+            "quiet": false,
+            "name": "D'Rak",
+            "ships": [
+                {
+                    "ship": 54,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat D'Rak.",
+                "zh": "击败德拉克。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:manticore",
+            "text": {
+                "en": "Finish off D'Rak's guards.",
+                "zh": "消灭德拉克剩下的护卫。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(D'Rak Guard) == 0"
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk D'Rak",
+            "text": {
+                "en": "This... changes nothing... Sh'Gaal waits in the Maw... and the Maw has never fallen...",
+                "zh": "这……改变不了什么……希加尔在巨口要塞等着……而巨口要塞从未陷落过……"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 14000,
+            "title": {
+                "en": "The Manticore holds",
+                "zh": "蝎尾狮号守住了"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "drak_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Land on the Manticore.",
+                "zh": "降落到蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Hull's scorched, two hangars are a mess, and we're still flying. That's a win in my book.",
+                        "zh": "船壳烧焦了，两个机库一团糟，但我们还在飞。在我看来这就是胜利。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "D'Rak's flight recorder gave us the Maw. It's Sh'Gaal's fortress, hidden in Trim the whole time, right under our noses.",
+                        "zh": "德拉克的飞行记录仪暴露了巨口要塞的位置。那是希加尔的堡垒，一直藏在特里姆星系里，就在我们眼皮底下。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then this ends there. I'm calling Martha at Phoenix. If the frontier wants to be free of the Gr'Gath, now's the time to show up.",
+                        "zh": "那就在那里了结。我去联系凤凰空间站的玛莎。如果边境想摆脱格尔加斯，现在就是该出力的时候。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 8000,
+            "title": {
+                "en": "Chapter 4 complete",
+                "zh": "第四章 完成"
+            }
+        }
+    ]
+}

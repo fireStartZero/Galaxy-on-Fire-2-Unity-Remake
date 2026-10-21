@@ -48,5 +48,17 @@
         "planet": 12,
         "looksLike": 70,
         "interior": "terran"
+    },
+    {
+        "id": "maw",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "The Maw",
+            "zh": "巨口要塞"
+        },
+        "techLevel": 4,
+        "planet": 20,
+        "looksLike": 105,
+        "interior": "vossk"
     }
 ]

@@ -1,0 +1,257 @@
+{
+    "title": "Manticore - The Haze",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_ancile) == 2",
+    "variables": [
+        {
+            "name": "hacked",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 3 - The Haze",
+                "zh": "第三章 - 薄雾"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Ulrus keeps the Gr'Gath fed: fuel, ammunition, spare hulls. If we cut him off, the whole clan starts to starve.",
+                        "zh": "乌鲁斯负责给格尔加斯供给：燃料、弹药、备用船体。切断他，整个氏族就得挨饿。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "One of his supply hulks broke down near Haze Trading Post. Its nav computer should still know the way to his hideout.",
+                        "zh": "他有一艘补给废船在薄雾贸易站附近抛锚了。它的导航电脑应该还记得去他藏身处的路线。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then go and ask it nicely. Dock with the hulk, crack its computer, and find me Ulrus.",
+                        "zh": "那就去好好问问它。停靠那艘废船，破解它的电脑，把乌鲁斯给我找出来。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "haze_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:haze_post"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:haze_post",
+            "dock": false,
+            "objective": {
+                "en": "Find the Gr'Gath supply hulk near Haze Trading Post.",
+                "zh": "在薄雾贸易站附近找到格尔加斯的补给废船。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "wreck",
+            "race": "vossk",
+            "name": "Gr'Gath Supply Hulk"
+        },
+        {
+            "type": "on",
+            "trigger": "hacked",
+            "steps": [
+                {
+                    "type": "set",
+                    "variable": "hacked",
+                    "value": "1"
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Saya",
+            "text": {
+                "en": "There it is. Dock with it and run the hack. Their locks are old, you'll be fine.",
+                "zh": "找到了。停靠上去，开始破解。他们的锁很老旧，没问题的。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:haze_post",
+            "text": {
+                "en": "Dock with the supply hulk and hack its computer.",
+                "zh": "停靠补给废船并破解它的电脑。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "hacked > 0"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Saya",
+            "text": {
+                "en": "Got the coordinates! Wait... the hulk just sent a signal. It was bait. Ships incoming!",
+                "zh": "拿到坐标了！等等……这艘废船刚刚发出了信号。它是诱饵。有飞船过来了！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:haze_post",
+            "quiet": false,
+            "name": "Ulrus Guard",
+            "ships": [
+                {
+                    "ship": 2,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 23,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy Ulrus' guards.",
+                "zh": "消灭乌鲁斯的护卫。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Ulrus",
+            "text": {
+                "en": "You touched my cargo, human. Nobody touches my cargo. Ulrus will take your ship apart for scrap.",
+                "zh": "你碰了我的货，人类。没人能碰我的货。乌鲁斯要把你的船拆了当废铁卖。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 9,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Ulrus Escort"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:haze_post",
+            "quiet": false,
+            "name": "Ulrus",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Ulrus.",
+                "zh": "击败乌鲁斯。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:haze_post",
+            "text": {
+                "en": "Finish off Ulrus' escorts.",
+                "zh": "消灭乌鲁斯剩下的护航舰。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Ulrus Escort) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:haze_post",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Ulrus",
+            "text": {
+                "en": "Laugh while you can... D'Rak already knows where your carrier sleeps...",
+                "zh": "趁现在笑吧……德拉克早就知道你们的航母停在哪儿了……"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 10000,
+            "title": {
+                "en": "Supply line cut",
+                "zh": "补给线切断"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "ulrus_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Warn the Manticore.",
+                "zh": "回蝎尾狮号报信。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Ulrus is gone and the Gr'Gath just lost their pantry. Good work. But you heard him. D'Rak is coming for us.",
+                        "zh": "乌鲁斯完了，格尔加斯的粮仓也没了。干得好。但你也听到了，德拉克要来找我们了。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "I've put the Manticore on alert. The flight deck is being armed, and every pilot we have is sleeping in their seat.",
+                        "zh": "我已经让蝎尾狮号进入警戒。飞行甲板正在挂弹，所有飞行员都睡在座舱里。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Get some rest while you can, ace. When D'Rak shows up, I want you first off the deck.",
+                        "zh": "能休息就抓紧休息，王牌。德拉克一露面，我要你第一个起飞。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 7000,
+            "title": {
+                "en": "Chapter 3 complete",
+                "zh": "第三章 完成"
+            }
+        }
+    ]
+}
