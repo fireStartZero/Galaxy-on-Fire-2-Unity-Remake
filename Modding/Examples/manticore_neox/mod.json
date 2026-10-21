@@ -1,0 +1,14 @@
+{
+    "id": "manticore_neox",
+    "name": {
+        "en": "Manticore: Neox Frontier",
+        "zh": "蝎尾狮号：尼奥克斯边境"
+    },
+    "version": "5.0",
+    "author": "fireStartZero",
+    "description": {
+        "en": "A fan tribute to Galaxy on Fire 3: Manticore, told with GoF2's art, following GoF3's three acts. Act I (5 chapters, Trim): join Bryce Vantok's carrier and hunt the Gr'Gath clan to Sh'Gaal, who names the Grey scientist Khador as the maker of the bomb behind the Shattering. Act II (4 chapters, Porros Nebula): tear up Khador's Grey Shadow spy network (Jaden Thee, Mudshark, Korgus Rhena) and capture Khador, who reveals that Indigo Brink hides behind the Cobalt Lancers. Act III (4 chapters, Rigant Vortex): expose the Lancers, find Hayley's Styx, break the Cobalt Bastion and defeat Eclipse. Act IV (4 chapters, Vortex Core, an original continuation: GoF3 itself ends after Act III): follow a prisoner transport, take T'Hebuk's Remnant Yard, slip into Blackwell Hold with the smuggler Nheeta, free Hayley Snocom, and chase the courier of 'the Board'. Act V (4 chapters, Meridian Reach, original): jump past Neox's charts, shut down the Board's Gate Zero Foundry, hold Phoenix with every ally you made, and bring Chairman Aurel Vane to justice. Story paraphrased, not GoF3's own text.",
+        "zh": "一份《银河火焰3：蝎尾狮号》的同人致敬，用 GoF2 的美术重新讲述，按 GoF3 的三幕结构展开。第一幕（五章，特里姆）：加入布莱斯·万托克的航母，追猎格尔加斯氏族直到希加尔，她临死说出灰人科学家卡多尔才是“碎裂”炸弹的制造者。第二幕（四章，波罗斯星云）：拆掉卡多尔的“灰影”间谍网（杰登·西、泥鲨、科尔古斯·雷纳），俘虏卡多尔，得知靛蓝深渊藏身于钴蓝枪骑兵之后。第三幕（四章，瑞甘特漩涡）：揭穿枪骑兵，找到海莉的冥河号，攻破钴蓝堡垒，击败日蚀。第四幕（四章，漩涡核心，本模组原创续写：GoF3 原作只到第三幕）：追查囚犯运输船，攻下提赫布克的残党船坞，与走私贩妮塔潜入黑井监狱救出海莉·斯诺科姆，再截住“董事会”的信使。第五幕（四章，子午边域，原创）：跃出尼奥克斯星图，关停董事会的零号门铸造厂，与所有盟友死守凤凰站，将主席奥雷尔·瓦恩绳之以法。剧情为转述改写，非 GoF3 原文。"
+    },
+    "credits": "Story after Galaxy on Fire 3: Manticore (Fishlabs / Deep Silver), retold in our own words from the fan wikis (galaxyonfire.wiki.gg, galaxyonfire.fandom.com, namu.wiki). Uses only the assets of the Galaxy on Fire 2 remake."
+}

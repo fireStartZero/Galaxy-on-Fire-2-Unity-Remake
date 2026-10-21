@@ -1,0 +1,196 @@
+[
+    {
+        "id": "manticore",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "The Manticore",
+            "zh": "蝎尾狮号"
+        },
+        "techLevel": 6,
+        "planet": 3,
+        "looksLike": 70,
+        "model": "gof2:sn_carrier_terran_1",
+        "collision": "box",
+        "interior": "terran"
+    },
+    {
+        "id": "phoenix",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "Phoenix Station",
+            "zh": "凤凰空间站"
+        },
+        "techLevel": 5,
+        "planet": 9,
+        "looksLike": 70,
+        "interior": "terran"
+    },
+    {
+        "id": "haze_post",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "Haze Trading Post",
+            "zh": "薄雾贸易站"
+        },
+        "techLevel": 3,
+        "planet": 17,
+        "looksLike": 41,
+        "interior": "nivelian"
+    },
+    {
+        "id": "ancile",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "Ancile",
+            "zh": "安喀勒"
+        },
+        "techLevel": 7,
+        "planet": 12,
+        "looksLike": 70,
+        "interior": "terran"
+    },
+    {
+        "id": "maw",
+        "system": "manticore_neox:trim",
+        "name": {
+            "en": "The Maw",
+            "zh": "巨口要塞"
+        },
+        "techLevel": 4,
+        "planet": 20,
+        "looksLike": 105,
+        "interior": "vossk"
+    },
+    {
+        "id": "survey_main",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "Survey Main",
+            "zh": "勘测总站"
+        },
+        "techLevel": 6,
+        "planet": 5,
+        "looksLike": 44,
+        "interior": "terran"
+    },
+    {
+        "id": "cornucopia",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "Cornucopia",
+            "zh": "丰饶角"
+        },
+        "techLevel": 5,
+        "planet": 14,
+        "looksLike": 17,
+        "interior": "vossk"
+    },
+    {
+        "id": "t12",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "T12 Depot",
+            "zh": "T12 仓库"
+        },
+        "techLevel": 4,
+        "planet": 20,
+        "looksLike": 104,
+        "interior": "terran"
+    },
+    {
+        "id": "nova_lab",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "Nova Observatory",
+            "zh": "新星观测站"
+        },
+        "techLevel": 9,
+        "planet": 1,
+        "looksLike": 32,
+        "interior": "nivelian"
+    },
+    {
+        "id": "driftwood",
+        "system": "manticore_neox:rigant",
+        "name": {
+            "en": "Driftwood Refuge",
+            "zh": "浮木避难站"
+        },
+        "techLevel": 3,
+        "planet": 12,
+        "looksLike": 31,
+        "interior": "nivelian"
+    },
+    {
+        "id": "the_eye",
+        "system": "manticore_neox:rigant",
+        "name": {
+            "en": "The Eye",
+            "zh": "漩涡之眼"
+        },
+        "techLevel": 5,
+        "planet": 20,
+        "looksLike": 106,
+        "interior": "vossk"
+    },
+    {
+        "id": "bastion",
+        "system": "manticore_neox:rigant",
+        "name": {
+            "en": "Cobalt Bastion",
+            "zh": "钴蓝堡垒"
+        },
+        "techLevel": 10,
+        "planet": 3,
+        "looksLike": 37,
+        "interior": "terran"
+    },
+    {
+        "id": "remnant_yard",
+        "system": "manticore_neox:vortex_core",
+        "name": {
+            "en": "Remnant Yard",
+            "zh": "残党船坞"
+        },
+        "techLevel": 6,
+        "planet": 8,
+        "looksLike": 26,
+        "interior": "vossk"
+    },
+    {
+        "id": "blackwell",
+        "system": "manticore_neox:vortex_core",
+        "name": {
+            "en": "Blackwell Hold",
+            "zh": "黑井监狱"
+        },
+        "techLevel": 7,
+        "planet": 20,
+        "looksLike": 105,
+        "interior": "terran"
+    },
+    {
+        "id": "exchange",
+        "system": "manticore_neox:meridian",
+        "name": {
+            "en": "Halcyon Exchange",
+            "zh": "哈尔西恩交易所"
+        },
+        "techLevel": 10,
+        "planet": 4,
+        "looksLike": 40,
+        "interior": "terran"
+    },
+    {
+        "id": "foundry",
+        "system": "manticore_neox:meridian",
+        "name": {
+            "en": "Gate Zero Foundry",
+            "zh": "零号门铸造厂"
+        },
+        "techLevel": 8,
+        "planet": 20,
+        "looksLike": 107,
+        "interior": "terran"
+    }
+]

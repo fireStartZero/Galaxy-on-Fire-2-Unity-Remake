@@ -1,0 +1,225 @@
+{
+    "title": "Manticore - Hangar 18",
+    "kind": "quest",
+    "startsWhen": "never",
+    "steps": [
+        {
+            "type": "title",
+            "subtitle": {
+                "en": "Chapter 1 - Hangar 18",
+                "zh": "第一章 - 18号机库"
+            },
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "So you're the kid who flew out of the Shattering in one piece. Welcome aboard the Manticore. Bryce Vantok, I run this outfit.",
+                        "zh": "你就是那个从“碎裂”里完整飞出来的小子？欢迎登上蝎尾狮号。我是布莱斯·万托克，这支队伍归我管。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "I'll be straight with you. Most of my pilots died guarding that conference when the planet broke apart. I need wings, and you need work. Hangar 18 is yours.",
+                        "zh": "我就直说了。星球碎裂那天，我的大部分飞行员都在保护那场会议时牺牲了。我缺飞行员，你缺活儿干。18号机库归你了。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Saya, chief of everything that flies around here. I went over your Inflict. Guns are calibrated, shield holds. Bring her back with fewer holes than last time, okay?",
+                        "zh": "我是萨雅，这里所有会飞的东西都归我管。你的Inflict我检查过了，武器校准好了，护盾也撑得住。下次带回来时少几个窟窿，行吗？"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "First job. A Starfire Survey freighter is waiting at Phoenix Station, and Gr'Gath raiders have been circling it all week. Get out there and keep it in one piece.",
+                        "zh": "第一个任务。一艘星火勘测公司的货船在凤凰空间站等着，格尔加斯掠夺者在附近转悠了一整个星期。出发吧，保住那艘船。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:phoenix"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:phoenix",
+            "dock": false,
+            "objective": {
+                "en": "Fly to Phoenix Station and meet the Starfire Survey freighter.",
+                "zh": "飞往凤凰空间站，与星火勘测货船会合。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 15,
+            "race": "terran",
+            "behaviour": "friendly",
+            "name": "Starfire Survey Freighter"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Martha Penbury",
+            "text": {
+                "en": "Manticore pilot? Martha Penbury, Starfire Survey. Thank the stars. They're coming in now, please hurry!",
+                "zh": "是蝎尾狮号的飞行员吗？我是星火勘测的玛莎·彭伯里。谢天谢地！他们现在就冲过来了，请快点！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:phoenix",
+            "quiet": false,
+            "name": "Gr'Gath Raider",
+            "ships": [
+                {
+                    "ship": 9,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy the Gr'Gath raiders. Protect the freighter.",
+                "zh": "消灭格尔加斯掠夺者，保护货船。"
+            }
+        },
+        {
+            "type": "if",
+            "condition": "alive(Starfire Survey Freighter) == 0",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "The freighter was destroyed.",
+                        "zh": "货船被摧毁了。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Vh'Arus Tengs",
+            "text": {
+                "en": "Little mercenary. This station pays its tribute to D'Rak, and so will that freighter. I will take both, and your hull as a trophy.",
+                "zh": "小小的雇佣兵。这座空间站向德拉克进贡，那艘货船也得交。两样我都要拿走，再把你的船壳当作战利品。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:phoenix",
+            "quiet": false,
+            "name": "Vh'Arus Tengs",
+            "ships": [
+                {
+                    "ship": 54,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Vh'Arus Tengs.",
+                "zh": "击败格尔加斯头目 维阿鲁斯·滕格斯。"
+            }
+        },
+        {
+            "type": "if",
+            "condition": "alive(Starfire Survey Freighter) == 0",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "The freighter was destroyed.",
+                        "zh": "货船被摧毁了。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:phoenix",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Martha Penbury",
+            "text": {
+                "en": "He's gone? You actually did it. Starfire won't forget this. Tell Vantok the survey data is safe.",
+                "zh": "他完蛋了？你真的做到了。星火勘测不会忘记这份恩情。告诉万托克，勘测数据安全了。"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 8000,
+            "title": {
+                "en": "Escort complete",
+                "zh": "护航完成"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "tengs_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Tengs down on your first sortie. Not bad, kid. Not bad at all.",
+                        "zh": "第一次出击就干掉了滕格斯。不赖嘛，小子，真不赖。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "But Tengs was only a dog on a leash. He answered to D'Rak, and D'Rak answers to Sh'Gaal, the warlord who sold the bomb that broke the planet. We're going to climb that ladder, one rung at a time.",
+                        "zh": "不过滕格斯只是条拴着链子的狗。他听命于德拉克，而德拉克听命于希加尔，就是那个卖出炸毁星球的炸弹的军阀。我们要顺着这条线一级一级往上爬。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "And I'm patching your shield emitter again. Get some sleep, ace.",
+                        "zh": "而我又得去补你的护盾发生器了。去睡一觉吧，王牌。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 5000,
+            "title": {
+                "en": "Chapter 1 complete",
+                "zh": "第一章 完成"
+            }
+        }
+    ]
+}

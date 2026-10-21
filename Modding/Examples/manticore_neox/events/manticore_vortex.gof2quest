@@ -1,0 +1,219 @@
+{
+    "title": "Manticore - The Vortex",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_lancers) == 2",
+    "variables": [
+        {
+            "name": "logs",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 11 - The Vortex",
+                "zh": "第十一章 - 漩涡"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Driftwood's people found an old wreck drifting near the refuge. It's a Styx. Nova markings.",
+                        "zh": "浮木的人在避难站附近发现了一艘漂流的旧残骸。是一架冥河号，有新星的标记。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Hayley flew a Styx. That night she held the jump point so the Manticore could escape. Please, ace. I need to know.",
+                        "zh": "海莉开的就是冥河号。那一夜，她守住跃迁点，让蝎尾狮号得以逃脱。拜托了，王牌。我需要知道真相。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Go to Driftwood and hack its flight recorder. Carefully. Indigo Brink owns this space.",
+                        "zh": "去浮木避难站，破解它的飞行记录仪。小心点，这片空域是靛蓝深渊的地盘。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "vortex_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:driftwood"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:driftwood",
+            "dock": false,
+            "objective": {
+                "en": "Jump into the Rigant Vortex and fly to Driftwood Refuge.",
+                "zh": "跃迁进入瑞甘特漩涡，飞往浮木避难站。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "wreck",
+            "race": "terran",
+            "name": "Styx Wreck",
+            "at": "0 2000 32000"
+        },
+        {
+            "type": "on",
+            "trigger": "hacked",
+            "steps": [
+                {
+                    "type": "set",
+                    "variable": "logs",
+                    "value": "1"
+                }
+            ]
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:driftwood",
+            "text": {
+                "en": "Hack the Styx wreck's flight recorder.",
+                "zh": "破解冥河号残骸的飞行记录仪。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "logs > 0"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "The recorder is intact. Last entry: 'Jump point held. Ejecting. Indigo ships closing.' The pod's beacon was switched off from outside.",
+                "zh": "记录仪完好。最后一条：“跃迁点已守住。弹射。靛蓝飞船正在逼近。”逃生舱的信标是被人从外部关闭的。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Saya",
+            "text": {
+                "en": "From outside... They took her. She might still be alive.",
+                "zh": "从外部……他们带走了她。她也许还活着。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "pirate Vhitarr",
+            "text": {
+                "en": "Sentimental. I was paid to make sure nobody reads that box. Nobody leaves the Vortex.",
+                "zh": "真感人。我收钱就是为了确保没人读那个盒子。没人能离开漩涡。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 54,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Vhitarr Wing"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:driftwood",
+            "quiet": false,
+            "name": "Vhitarr",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat the mercenary Vhitarr.",
+                "zh": "击败雇佣兵维塔尔。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:driftwood",
+            "text": {
+                "en": "Clear Vhitarr's wing.",
+                "zh": "清除维塔尔的僚机。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Vhitarr Wing) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:driftwood",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 24000,
+            "title": {
+                "en": "Recorder recovered",
+                "zh": "记录仪已取回"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "vhitarr_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "The recorder also logged the Eye's defence frequencies. With them, the Manticore can reach the Cobalt Bastion, the Lancers' public face.",
+                        "zh": "记录仪还记下了漩涡之眼的防御频率。有了它们，蝎尾狮号就能抵达钴蓝堡垒，也就是枪骑兵对外的门面。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Nova Defence says it will send ships if we strike first. For once, the old fleet and the Manticore fly together.",
+                        "zh": "新星防务说，只要我们先动手，他们就派船来。这一次，老舰队和蝎尾狮号并肩作战。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 11000,
+            "title": {
+                "en": "Chapter 11 complete",
+                "zh": "第十一章 完成"
+            }
+        }
+    ]
+}

@@ -1,0 +1,240 @@
+{
+    "title": "Manticore - Cobalt Bastion",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_vortex) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 12 - Cobalt Bastion",
+                "zh": "第十二章 - 钴蓝堡垒"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "The Bastion is the Lancers' headquarters, and every contract they hold in Neox runs through it. Take it apart, and Eclipse has nowhere left to hide.",
+                        "zh": "堡垒是枪骑兵的总部，他们在尼奥克斯的每一份合同都经过这里。拆了它，日蚀就无处可藏。"
+                    }
+                },
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "Nova's fighters will join you there. Their pilots remember the ambush too.",
+                        "zh": "新星的战机会在那里和你会合。他们的飞行员也记得那次伏击。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "bastion_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:bastion"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:bastion",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the Cobalt Bastion.",
+                "zh": "飞往钴蓝堡垒。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 28,
+            "race": "terran",
+            "count": 3,
+            "behaviour": "friendly",
+            "name": "Nova Wing"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Nova Wing Leader",
+            "text": {
+                "en": "Nova Defence wing on station. For the fleet, and for Snocom.",
+                "zh": "新星防务联队就位。为了舰队，为了斯诺科姆。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:bastion",
+            "quiet": false,
+            "name": "Bastion Guard",
+            "ships": [
+                {
+                    "ship": 22,
+                    "count": 3,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 28,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Break the Bastion's guard.",
+                "zh": "突破堡垒的守卫。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:bastion",
+            "quiet": false,
+            "name": "Indigo Gunship",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 54,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy Indigo Brink's gunships.",
+                "zh": "摧毁靛蓝深渊的炮艇。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "pirate Surman Rod",
+            "text": {
+                "en": "You think Eclipse sits in a box with her name on it? I run this place. And I'm the last thing you'll see.",
+                "zh": "你以为日蚀会坐在贴着她名字的盒子里？这里归我管。我会是你看到的最后一样东西。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 9,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Rod Guard"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:bastion",
+            "quiet": false,
+            "name": "Surman Rod",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Surman Rod.",
+                "zh": "击败苏尔曼·罗德。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:bastion",
+            "text": {
+                "en": "Clear the last guards.",
+                "zh": "清除最后的守卫。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Rod Guard) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:bastion",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "The Bastion's network is open. Eclipse is not here, but her route is: she just left the Eye. Heading straight for the Manticore.",
+                "zh": "堡垒的网络被打开了。日蚀不在这里，但她的航线在：她刚刚离开漩涡之眼，正直奔蝎尾狮号而来。"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 28000,
+            "title": {
+                "en": "Bastion broken",
+                "zh": "堡垒被攻破"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "rod_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Get back to the Manticore, now!",
+                "zh": "立刻返回蝎尾狮号！"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "She is not coming to fight. She is coming to take your ship. She stole my intrusion code years ago. Everything I wrote, she can use.",
+                        "zh": "她不是来打仗的，她是来夺你们的船的。几年前她偷走了我的入侵代码。我写的一切，她都能用。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "I'll keep her out of the Manticore as long as I can. If I go quiet, don't trust anything with our transponder.",
+                        "zh": "我会尽力把她挡在蝎尾狮号外面。如果我没声音了，别相信任何带着我们应答码的东西。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Everyone to the launch bays. We meet her at the Eye. This ends tonight.",
+                        "zh": "全员到发射舱。我们在漩涡之眼迎击她。今晚就做个了断。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 12000,
+            "title": {
+                "en": "Chapter 12 complete",
+                "zh": "第十二章 完成"
+            }
+        }
+    ]
+}

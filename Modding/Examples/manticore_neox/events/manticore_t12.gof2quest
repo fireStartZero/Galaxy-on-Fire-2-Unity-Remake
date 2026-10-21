@@ -1,0 +1,259 @@
+{
+    "title": "Manticore - The Dead Planet",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_cornucopia) == 2",
+    "variables": [
+        {
+            "name": "phase",
+            "value": "0"
+        },
+        {
+            "name": "haulers",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 8 - The Dead Planet",
+                "zh": "第八章 - 死亡行星"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "T12 was destroyed long before anyone came to Neox. Its debris looks just like the Shattering. Some think it was a Glow accident. Some think it was a test.",
+                        "zh": "T12 早在任何人来到尼奥克斯之前就毁灭了。它的残骸和“碎裂”一模一样。有人认为那是光晶事故，有人认为那是一次试验。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Three haulers are loading refined Glow at the T12 Depot. Their escort is flown by Korgus Rhena, an assassin turned pilot.",
+                        "zh": "三艘运输船正在T12仓库装载精炼光晶。护航的是科尔古斯·雷纳，一个当了飞行员的刺客。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "No hauler leaves that depot. Not one.",
+                        "zh": "一艘运输船都不许离开那座仓库。一艘都不行。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "t12_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:t12"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:t12",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the T12 Depot.",
+                "zh": "飞往T12仓库。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "set",
+            "variable": "phase",
+            "value": "1"
+        },
+        {
+            "type": "on",
+            "trigger": "kill",
+            "steps": [
+                {
+                    "type": "if",
+                    "condition": "phase == 1",
+                    "then": [
+                        {
+                            "type": "set",
+                            "variable": "haulers",
+                            "value": "haulers + 1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "spawn",
+            "ship": 15,
+            "race": "pirate",
+            "count": 3,
+            "behaviour": "enemy",
+            "name": "Glow Hauler"
+        },
+        {
+            "type": "shipaction",
+            "ship": "Glow Hauler",
+            "action": "flee",
+            "seconds": 150
+        },
+        {
+            "type": "timer",
+            "seconds": 150,
+            "label": {
+                "en": "Haulers jump",
+                "zh": "运输船跃迁"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "The haulers are running! You have two and a half minutes before they reach jump distance.",
+                "zh": "运输船在逃！两分半钟后它们就能跃迁了。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:t12",
+            "text": {
+                "en": "Destroy the three Glow haulers.",
+                "zh": "摧毁三艘光晶运输船。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "haulers >= 3",
+            "timeout": 150
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "set",
+            "variable": "phase",
+            "value": "2"
+        },
+        {
+            "type": "if",
+            "condition": "haulers < 3",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "The Glow shipment escaped.",
+                        "zh": "光晶货运逃走了。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Korgus Rhena",
+            "text": {
+                "en": "That cargo was paid for. The contract says whoever touches it dies.",
+                "zh": "那批货是付过钱的。合同上写着，谁碰谁死。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:t12",
+            "quiet": false,
+            "name": "Korgus Rhena",
+            "ships": [
+                {
+                    "ship": 28,
+                    "count": 1,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 5,
+                    "count": 2,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Korgus Rhena and his escort.",
+                "zh": "击败科尔古斯·雷纳和他的护航。"
+            }
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:t12",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Korgus Rhena",
+            "text": {
+                "en": "Khador's at the Nova Observatory... he wanted the Glow for his star...",
+                "zh": "卡多尔在新星观测站……他要用这些光晶去对付他的那颗星……"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 22000,
+            "title": {
+                "en": "Shipment destroyed",
+                "zh": "货运被摧毁"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "rhena_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "The Nova Observatory studies a star about to go supernova. Khador has a laboratory there. The Grey Shadow's money and the Glow all end at that door.",
+                        "zh": "新星观测站研究的是一颗即将超新星爆发的恒星。卡多尔在那里有一间实验室。灰影的钱和光晶，最终都流向那扇门。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then that's where we end it. Ace, he's no fighter, but he's clever. Expect tricks.",
+                        "zh": "那我们就在那里了结。王牌，他不是战士，但他很聪明。小心他耍花招。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 10000,
+            "title": {
+                "en": "Chapter 8 complete",
+                "zh": "第八章 完成"
+            }
+        }
+    ]
+}

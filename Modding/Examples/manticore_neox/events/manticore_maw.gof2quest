@@ -1,0 +1,281 @@
+{
+    "title": "Manticore - The Maw",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_drak) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 5 - The Maw",
+                "zh": "第五章 - 巨口要塞"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Martha Penbury",
+                    "text": {
+                        "en": "Phoenix militia, reporting. Three Inflicts, freshly painted and badly paid. Point us at something Gr'Gath.",
+                        "zh": "凤凰民兵报到。三架 Inflict，刚上的漆，工资很低。给我们指个格尔加斯的目标吧。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Glad you came, Martha. The Maw is a fortress, so we hit it all at once. Ace, you lead. Break the defenders, then find Sh'Gaal.",
+                        "zh": "很高兴你来了，玛莎。巨口要塞是座堡垒，所以我们要一口气打进去。王牌，你带队。击溃守军，然后找到希加尔。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "One more thing. Sh'Gaal never fights alone. When he shows up, kill his bodyguards fast, or they'll tear you apart.",
+                        "zh": "还有一件事。希加尔从不单打独斗。他一出现，就赶紧干掉他的保镖，不然他们会把你撕碎。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "maw_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:maw"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:maw",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the Maw.",
+                "zh": "飞往巨口要塞。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 3,
+            "behaviour": "friendly",
+            "name": "Phoenix Militia"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Martha Penbury",
+            "text": {
+                "en": "Militia in position. Defenders scrambling. Let's take them apart.",
+                "zh": "民兵就位。守军正在紧急起飞。把他们拆了吧。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:maw",
+            "quiet": false,
+            "name": "Maw Defender",
+            "ships": [
+                {
+                    "ship": 2,
+                    "count": 4,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 23,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Break the Maw's defenders.",
+                "zh": "击溃巨口要塞的守军。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Sh'Gaal",
+            "text": {
+                "en": "You come into my Maw? Then the Maw will close on you. Elites, rip them out of the sky!",
+                "zh": "你们竟敢闯进我的巨口？那它就会把你们吞掉。精锐们，把他们从天上撕下来！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:maw",
+            "quiet": false,
+            "name": "Sh'Gaal Elite",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 54,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy Sh'Gaal's elite guard.",
+                "zh": "消灭希加尔的精锐卫队。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Sh'Gaal",
+            "text": {
+                "en": "Enough. I will crush you myself.",
+                "zh": "够了。我亲自碾碎你。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 54,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Sh'Gaal Bodyguard"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:maw",
+            "quiet": false,
+            "name": "Sh'Gaal",
+            "ships": [
+                {
+                    "ship": 63,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Sh'Gaal.",
+                "zh": "击败希加尔。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:maw",
+            "text": {
+                "en": "Destroy Sh'Gaal's bodyguards.",
+                "zh": "消灭希加尔的保镖。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Sh'Gaal Bodyguard) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:maw",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "vossk Sh'Gaal",
+            "text": {
+                "en": "Clan Gr'Gath... falls... ask the Grey... ask Khador who built it...",
+                "zh": "格尔加斯氏族……倒下了……去问那个灰人……去问卡多尔，是谁造的……"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Martha Penbury",
+            "text": {
+                "en": "The Maw is ours! Frontier traffic will be safe for the first time in years. Phoenix owes you, Manticore.",
+                "zh": "巨口要塞拿下了！这么多年来，边境航线第一次安全了。凤凰空间站欠你一份人情，蝎尾狮号。"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 25000,
+            "title": {
+                "en": "The Gr'Gath are broken",
+                "zh": "格尔加斯被击溃"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "shgaal_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "ACT I COMPLETE",
+                "zh": "第一幕 完成"
+            },
+            "subtitle": {
+                "en": "The Gr'Gath are broken.",
+                "zh": "格尔加斯被击溃了。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Tengs, Sladek, Ulrus, D'Rak, and now Sh'Gaal. Not bad for a carrier everyone wrote off.",
+                        "zh": "滕格斯、斯拉德克、乌鲁斯、德拉克，现在还有希加尔。对一艘人人都不看好的航母来说，还不赖。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "About Sh'Gaal's last words. Khador. The Grey scientist from the old Void war. Sh'Gaal says he built the device that caused the Shattering.",
+                        "zh": "关于希加尔的遗言。卡多尔，那个参加过当年虚空战争的灰人科学家。希加尔说，引发“碎裂”的装置就是他造的。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Khador. Then the Shattering was never an accident. Find out where that Grey is hiding.",
+                        "zh": "卡多尔。这么说“碎裂”从来就不是意外。查出那个灰人藏在哪里。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Keep that quiet for now, Saya. Ace, you earned your place on this ship. Whatever comes next, the Manticore flies with you.",
+                        "zh": "这件事先别声张，萨娅。王牌，你已经在这艘船上站稳了脚跟。不管接下来是什么，蝎尾狮号都和你一起飞。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 15000,
+            "title": {
+                "en": "Act I complete",
+                "zh": "第一幕 完成"
+            }
+        }
+    ]
+}

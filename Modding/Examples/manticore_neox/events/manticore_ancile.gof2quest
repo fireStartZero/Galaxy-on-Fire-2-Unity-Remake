@@ -1,0 +1,79 @@
+{
+    "title": "Manticore - Ancile",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_hangar18) == 2",
+    "steps": [
+        { "type": "wait", "seconds": 4 },
+        { "type": "title", "title": { "en": "MANTICORE", "zh": "蝎尾狮号" }, "subtitle": { "en": "Chapter 2 - Ancile", "zh": "第二章 - 安喀勒" } },
+        { "type": "dialog", "pages": [
+            { "speaker": "terran female Saya", "text": {
+                "en": "Before you run off, ace. I pulled a data core out of what was left of Tengs. Most of it is fried, but the payment logs aren't.",
+                "zh": "先别急着走，王牌。我从滕格斯的残骸里抠出了一块数据核心。大部分烧坏了，但付款记录还在。" } },
+            { "speaker": "terran female Saya", "text": {
+                "en": "Somebody has been paying the Gr'Gath for route data. Human credits, human signature. A mercenary called Reid Sladek.",
+                "zh": "有人一直在付钱给格尔加斯买航线情报。人类的信用点，人类的签名。一个叫里德·斯拉德克的雇佣兵。" } },
+            { "speaker": "terran Bryce Vantok", "text": {
+                "en": "Sladek. Figures. And here is the funny part. Nova Defence just hired us to guard their supply run to Ancile, Paragon's headquarters. A run Sladek knows about.",
+                "zh": "斯拉德克，难怪。更有意思的是：新星防务刚雇了我们，护送他们去安喀勒的补给船队，那是典范集团的总部。而斯拉德克知道这条航线。" } },
+            { "speaker": "terran Bryce Vantok", "text": {
+                "en": "The convoy forms up at Haze Trading Post. Keep it alive all the way to Ancile. If Sladek shows his face, you have my permission to rearrange it.",
+                "zh": "船队在薄雾贸易站集合。一路护送到安喀勒，别让它出事。要是斯拉德克敢露面，我准许你给他整整容。" } }
+        ] },
+        { "type": "checkpoint", "name": "ancile_briefed" },
+        { "type": "questorbit", "station": "manticore_neox:haze_post" },
+        { "type": "goto", "station": "manticore_neox:haze_post", "dock": false,
+          "objective": { "en": "Meet the Nova Defence convoy at Haze Trading Post.", "zh": "前往薄雾贸易站，与新星防务船队会合。" } },
+        { "type": "wait", "seconds": 8 },
+        { "type": "spawn", "ship": 15, "race": "terran", "count": 2, "behaviour": "friendly", "name": "Nova Supply Ship" },
+        { "type": "radio", "speaker": "terran Convoy Lead Okafor", "text": {
+            "en": "Manticore escort, this is Nova convoy lead. Good to have you. Scanners are quiet... no, scratch that. Contacts closing fast!",
+            "zh": "蝎尾狮号护航机，这里是新星船队领航。很高兴有你在。扫描仪一切正常……不，收回这句话。有目标快速接近！" } },
+        { "type": "fight", "station": "manticore_neox:haze_post", "quiet": false, "name": "Sladek Raider",
+          "ships": [ { "ship": 2, "count": 2, "race": "pirate", "behaviour": "enemy" }, { "ship": 23, "count": 1, "race": "pirate", "behaviour": "enemy" } ],
+          "objective": { "en": "Drive off the raiders. Protect the supply ships.", "zh": "击退掠夺者，保护补给船。" } },
+        { "type": "if", "condition": "alive(Nova Supply Ship) == 0",
+          "then": [ { "type": "fail", "title": { "en": "The convoy was destroyed.", "zh": "补给船队被摧毁了。" } } ] },
+        { "type": "radio", "speaker": "terran Convoy Lead Okafor", "text": {
+            "en": "That was a probe, not an attack. We're jumping ahead to Ancile now. Meet us there, and hurry.",
+            "zh": "那只是试探，不是真正的进攻。我们现在先跃迁去安喀勒。在那里会合，快点。" } },
+        { "type": "questorbit", "station": "manticore_neox:haze_post", "on": false },
+        { "type": "reward", "credits": 4000, "title": { "en": "Convoy defended", "zh": "船队守住了" } },
+        { "type": "checkpoint", "name": "haze_cleared" },
+        { "type": "questorbit", "station": "manticore_neox:ancile" },
+        { "type": "goto", "station": "manticore_neox:ancile", "dock": false,
+          "objective": { "en": "Follow the convoy to Ancile.", "zh": "跟随船队前往安喀勒。" } },
+        { "type": "wait", "seconds": 8 },
+        { "type": "spawn", "ship": 15, "race": "terran", "count": 2, "behaviour": "friendly", "name": "Nova Supply Ship" },
+        { "type": "radio", "speaker": "terran Reid Sladek", "text": {
+            "en": "Vantok's new pet. Do you know what Nova pays me to look the other way? More than that old carrier is worth. Last chance, walk away.",
+            "zh": "万托克新养的宠物啊。你知道新星防务的人付我多少钱让我睁一只眼闭一只眼吗？比那艘破航母还值钱。最后的机会，滚吧。" } },
+        { "type": "spawn", "ship": 23, "race": "pirate", "count": 2, "behaviour": "enemy", "name": "Sladek Wingman" },
+        { "type": "fight", "station": "manticore_neox:ancile", "quiet": false, "name": "Reid Sladek",
+          "ships": [ { "ship": 22, "count": 1, "race": "pirate", "behaviour": "enemy" } ],
+          "objective": { "en": "Defeat Reid Sladek. Protect the convoy.", "zh": "击败里德·斯拉德克，保护船队。" } },
+        { "type": "objective", "station": "manticore_neox:ancile", "text": { "en": "Finish off Sladek's wingmen.", "zh": "消灭斯拉德克剩下的僚机。" } },
+        { "type": "waituntil", "condition": "alive(Sladek Wingman) == 0" },
+        { "type": "if", "condition": "alive(Nova Supply Ship) == 0",
+          "then": [ { "type": "fail", "title": { "en": "The convoy was destroyed.", "zh": "补给船队被摧毁了。" } } ] },
+        { "type": "questorbit", "station": "manticore_neox:ancile", "on": false },
+        { "type": "radio", "speaker": "terran Convoy Lead Okafor", "text": {
+            "en": "Sladek's ship is breaking up... he got a message out before it went. Something about Ulrus and the Haze field. Ancile thanks you, Manticore.",
+            "zh": "斯拉德克的飞船正在解体……他在爆炸前发出了一条消息，提到了乌鲁斯和薄雾小行星带。安喀勒感谢你，蝎尾狮号。" } },
+        { "type": "reward", "credits": 12000, "title": { "en": "Supplies delivered", "zh": "补给送达" } },
+        { "type": "checkpoint", "name": "sladek_down" },
+        { "type": "goto", "station": "manticore_neox:manticore", "dock": true,
+          "objective": { "en": "Return to the Manticore.", "zh": "返回蝎尾狮号。" } },
+        { "type": "dialog", "pages": [
+            { "speaker": "terran Bryce Vantok", "text": {
+                "en": "Nova is paying in full, and they're asking how many more pilots like you I've got. I told them it's a trade secret.",
+                "zh": "新星防务全额付款了，还问我手下像你这样的飞行员还有多少。我说这是商业机密。" } },
+            { "speaker": "terran female Saya", "text": {
+                "en": "Sladek's last message went to Ulrus. He's a Gr'Gath quartermaster, holed up somewhere in the Haze asteroid field. Rocks, mines and ambushes. Lovely.",
+                "zh": "斯拉德克的最后一条消息是发给乌鲁斯的。他是格尔加斯的军需官，躲在薄雾小行星带的某个地方。满是岩石、地雷和埋伏。真是好地方。" } },
+            { "speaker": "terran Bryce Vantok", "text": {
+                "en": "Tengs, Sladek, now Ulrus. Every rung brings us closer to D'Rak. Rest up, ace. The Haze won't wait forever.",
+                "zh": "滕格斯、斯拉德克，现在是乌鲁斯。每往上爬一级，就离德拉克更近一步。好好休息，王牌。薄雾那边可不会一直等着。" } }
+        ] },
+        { "type": "complete", "reward": 6000, "title": { "en": "Chapter 2 complete", "zh": "第二章 完成" } }
+    ]
+}

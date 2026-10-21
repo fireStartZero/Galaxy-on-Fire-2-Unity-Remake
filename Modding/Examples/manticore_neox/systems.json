@@ -1,0 +1,103 @@
+[
+    {
+        "id": "trim",
+        "name": {
+            "en": "Trim",
+            "zh": "特里姆"
+        },
+        "race": 0,
+        "security": 1,
+        "visible": true,
+        "position": [
+            12,
+            90,
+            20
+        ],
+        "sky": 7,
+        "gateStation": "manticore_neox:haze_post"
+    },
+    {
+        "id": "porros",
+        "name": {
+            "en": "Porros Nebula",
+            "zh": "波罗斯星云"
+        },
+        "race": 0,
+        "security": 2,
+        "visible": true,
+        "available": "quest(manticore_maw) == 2",
+        "position": [
+            26,
+            80,
+            32
+        ],
+        "sky": 12,
+        "gates": [
+            "manticore_neox:trim"
+        ],
+        "gateStation": "manticore_neox:survey_main"
+    },
+    {
+        "id": "rigant",
+        "name": {
+            "en": "Rigant Vortex",
+            "zh": "瑞甘特漩涡"
+        },
+        "race": 1,
+        "security": 3,
+        "visible": true,
+        "available": "quest(manticore_khador) == 2",
+        "position": [
+            40,
+            92,
+            18
+        ],
+        "sky": 3,
+        "gates": [
+            "manticore_neox:porros"
+        ],
+        "gateStation": "manticore_neox:driftwood"
+    },
+    {
+        "id": "vortex_core",
+        "name": {
+            "en": "Vortex Core",
+            "zh": "漩涡核心"
+        },
+        "race": 1,
+        "security": 3,
+        "visible": true,
+        "available": "quest(manticore_eclipse) == 2",
+        "position": [
+            48,
+            100,
+            10
+        ],
+        "sky": 16,
+        "gates": [
+            "manticore_neox:rigant"
+        ],
+        "gateStation": "manticore_neox:remnant_yard"
+    },
+    {
+        "id": "meridian",
+        "name": {
+            "en": "Meridian Reach",
+            "zh": "子午边域"
+        },
+        "race": 0,
+        "security": 1,
+        "visible": true,
+        "available": "quest(manticore_board) == 2",
+        "position": [
+            62,
+            70,
+            4
+        ],
+        "sky": 9,
+        "gates": [
+            "manticore_neox:vortex_core"
+        ],
+        "gateStation": "manticore_neox:exchange"
+    }
+]
