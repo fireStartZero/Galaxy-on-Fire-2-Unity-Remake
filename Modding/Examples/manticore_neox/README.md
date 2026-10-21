@@ -1,34 +1,33 @@
-# Manticore: Neox Frontier (fan tribute, v2.0)
+# Manticore: Neox Frontier (fan tribute, v3.0)
 
-Galaxy on Fire 3: Manticore-style Act I (five chapters) and Act II (four chapters) built only from GoF2 remake assets, as a data mod.
-The story follows GoF3's Act 1 setup (the Shattering, Bryce Vantok's carrier, hangar 18, the hunt for Sh'Gaal),
+A Galaxy on Fire 3: Manticore-style story in three acts (13 chapters), built only from GoF2 remake assets as a data mod.
+It follows GoF3's plot as the fan wikis describe it (galaxyonfire.wiki.gg, galaxyonfire.fandom.com, namu.wiki),
 retold in our own words. No GoF3 text, models or sounds are used.
 
-- `systems.json`: Trim, a low-security Terran frontier system, and Valtor, Nova Defence's home system, which appears on
-  the map once Act I is done (jumpgate at Haze Trading Post).
-- `stations.json`: The Manticore (the Terran carrier model `gof2:sn_carrier_terran_1` as the home base),
-  Phoenix Station, Haze Trading Post, Ancile (Paragon's headquarters), the Maw (the Gr'Gath fortress); in Valtor the Nova Defence Yard, Rustbelt Salvage and Paragon Spire.
+- `systems.json`: Trim (Act I); the Porros Nebula (shown once Act I is done, jumpgate at Haze Trading Post); the
+  Rigant Vortex (shown once Act II is done, jumpgate at Survey Main).
+- `stations.json`: the Manticore (the Terran carrier model `gof2:sn_carrier_terran_1`), Phoenix Station, Haze Trading
+  Post, Ancile, the Maw; in Porros Survey Main, Cornucopia (Vossk), the T12 Depot, the Nova Observatory; in Rigant
+  Driftwood Refuge, the Eye and the Cobalt Bastion.
 - `campaign.json`: a new-game card. Start docked at the Manticore in an Inflict with 15 000 credits; only this mod's galaxy.
-- `events/manticore_hangar18.gof2quest`: chapter 1. Briefing, fly to Phoenix Station, protect the Starfire Survey
-  freighter from three Gr'Gath raiders, defeat Vh'Arus Tengs, return to the Manticore.
-- `events/manticore_ancile.gof2quest`: chapter 2, starts once chapter 1 is done. Tengs' data core points to the
-  mercenary Reid Sladek; escort Nova Defence's supply ships from Haze Trading Post to Ancile, defeat Sladek and his
-  wingmen, and learn of Ulrus in the Haze field (the hook for chapter 3).
-- `events/manticore_haze.gof2quest`: chapter 3. Hack a Gr'Gath supply hulk at Haze Trading Post, survive the ambush,
-  defeat the quartermaster Ulrus.
-- `events/manticore_drak.gof2quest`: chapter 4. D'Rak raids the Manticore; launch with two wingmen, stop two waves,
-  defeat D'Rak.
-- `events/manticore_maw.gof2quest`: chapter 5. With the Phoenix militia, storm the Maw, break the elite guard and
-  defeat Sh'Gaal. Ends Act I with a hook: Paragon was paying the pirates.
-- Act II (written for this mod; GoF3's later acts aren't followed closely):
-  - `events/manticore_money.gof2quest`: chapter 6. Jump to Valtor, meet the accountant Ines Marlowe, escort her shuttle
-    out past Captain Kane's Nova security.
-  - `events/manticore_ledger.gof2quest`: chapter 7. Hack three lost Nova couriers at Rustbelt for the black ledger,
-    defeat Kane.
-  - `events/manticore_outlaws.gof2quest`: chapter 8. Nova brands the Manticore as pirates; defend Phoenix Station from
-    bounty hunters and a Nova strike wing.
-  - `events/manticore_spire.gof2quest`: chapter 9. Hold the relay at Paragon Spire for the 90 s upload, then stop
-    Director Halvard Crane. Ends Act II with a hook into the Shattering itself.
+- Act I, Trim (`hangar18`, `ancile`, `haze`, `drak`, `maw`): hangar 18 and Vh'Arus Tengs, the Ancile convoy and Reid
+  Sladek, Ulrus in the Haze, D'Rak's raid on the Manticore, the assault on the Maw. Sh'Gaal's last words name Khador.
+- Act II, Porros Nebula, the Grey Shadow:
+  - `manticore_porros`: chapter 6. Catch Khador's indebted courier Jaden Thee at Survey Main.
+  - `manticore_cornucopia`: chapter 7. Kyrrk Tasst gets you into the Vossk field; hack three storage hulks for the Grey
+    Shadow's records, defeat the bioweapons dealer Mudshark.
+  - `manticore_t12`: chapter 8. Destroy three fleeing refined-Glow haulers at the dead planet T12 within 150 s, defeat
+    the assassin Korgus Rhena.
+  - `manticore_khador`: chapter 9. Khador's drones and projected echoes at the Nova Observatory; Khador surrenders,
+    admits Indigo Brink paid for the bomb and now poses as the Cobalt Lancers, and joins the Manticore.
+- Act III, Rigant Vortex, Indigo Brink:
+  - `manticore_lancers`: chapter 10. The Lancers "keep the peace" at Phoenix Station; fight them and the green Indigo
+    raiders behind them.
+  - `manticore_vortex`: chapter 11. Hack the wreck of Hayley Snocom's Styx at Driftwood Refuge (her pod was taken),
+    defeat the mercenary Vhitarr.
+  - `manticore_bastion`: chapter 12. With a Nova Defence wing, break the Cobalt Bastion and its boss Surman Rod.
+  - `manticore_eclipse`: chapter 13. At the Eye, Eclipse hacks the Manticore's wing: survive 60 s without destroying
+    it while Jalen purges the hack, then defeat Eclipse. A bleak ending, with Hayley's name on a prisoner list.
 - Each chapter starts when the one before is done. All in English and Simplified Chinese.
 
 Install: copy this folder (or a zip of it) into the Mods folder, turn it on in Mods, then pick the Manticore card
@@ -36,8 +35,13 @@ under New game.
 
 ---
 
-《银河火焰3：蝎尾狮号》风格的剧情（第一幕五章、第二幕四章），只用 GoF2 重制版的素材做成的数据模组。剧情沿用 GoF3 第一幕的设定
-（“碎裂”事件、布莱斯·万托克的航母、18号机库、追猎希加尔），文字为自行改写，不含 GoF3 的原文、模型或音效。
-第一章：护送星火勘测货船、击败滕格斯；第二章：护送新星防务补给船队前往安喀勒、击败雇佣兵里德·斯拉德克；第三章：破解补给废船、击败军需官乌鲁斯；第四章：抵御德拉克对蝎尾狮号的突袭；第五章：与凤凰民兵强攻巨口要塞、击败希加尔。
-第二幕（第一幕完成后瓦尔托星系出现在地图上，跃迁门在薄雾贸易站）：第六章：护送会计伊内丝·马洛出逃；第七章：在锈带破解三艘信使船夺回黑色账本、击败凯恩上尉；第八章：被宣布为海盗，保卫凤凰空间站；第九章：在典范尖塔坚守 90 秒上传、击败总监克莱恩。第二幕为本模组原创续写。
+《银河火焰3：蝎尾狮号》风格的三幕剧情（共十三章），只用 GoF2 重制版的素材做成的数据模组。情节按粉丝百科（galaxyonfire.wiki.gg、
+galaxyonfire.fandom.com、namu.wiki）对 GoF3 剧情的记述，用自己的话改写，不含 GoF3 的原文、模型或音效。
+第一幕（特里姆）：18号机库与滕格斯、安喀勒船队与斯拉德克、薄雾中的乌鲁斯、德拉克突袭蝎尾狮号、强攻巨口要塞，希加尔临死说出卡多尔。
+第二幕（波罗斯星云，灰影）：第六章在勘测总站抓住欠债的信使杰登·西；第七章由基尔克·塔斯特带路进入丰饶角，破解三艘储存废船，击败生化武器贩子泥鲨；
+第八章在死亡行星 T12 于 150 秒内摧毁三艘逃跑的精炼光晶运输船，击败刺客科尔古斯·雷纳；第九章在新星观测站击破卡多尔的无人机和幻影，卡多尔投降，
+供出出钱的是靛蓝深渊，而它如今伪装成钴蓝枪骑兵，卡多尔留在蝎尾狮号上。
+第三幕（瑞甘特漩涡，靛蓝深渊）：第十章在凤凰空间站击退“维和”的枪骑兵和身后的绿色袭击者；第十一章在浮木避难站破解海莉的冥河号残骸，击败雇佣兵维塔尔；
+第十二章与新星防务联队攻破钴蓝堡垒，击败苏尔曼·罗德；第十三章在漩涡之眼，日蚀劫持了我方联队，坚持 60 秒不击毁他们等贾伦清除入侵，再击败日蚀。
+结局沉重，俘虏名单上出现了斯诺科姆的名字。
 安装：把这个文件夹（或其压缩包）放进 Mods 文件夹，在“模组”里启用，然后在新游戏里选择“蝎尾狮号”卡片。

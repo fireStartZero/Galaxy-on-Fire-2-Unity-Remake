@@ -62,38 +62,86 @@
         "interior": "vossk"
     },
     {
-        "id": "novagate",
-        "system": "manticore_neox:valtor",
+        "id": "survey_main",
+        "system": "manticore_neox:porros",
         "name": {
-            "en": "Nova Defence Yard",
-            "zh": "新星防务船坞"
+            "en": "Survey Main",
+            "zh": "勘测总站"
         },
-        "techLevel": 8,
+        "techLevel": 6,
         "planet": 5,
-        "looksLike": 7,
+        "looksLike": 44,
         "interior": "terran"
     },
     {
-        "id": "rustbelt",
-        "system": "manticore_neox:valtor",
+        "id": "cornucopia",
+        "system": "manticore_neox:porros",
         "name": {
-            "en": "Rustbelt Salvage",
-            "zh": "锈带回收站"
+            "en": "Cornucopia",
+            "zh": "丰饶角"
+        },
+        "techLevel": 5,
+        "planet": 14,
+        "looksLike": 17,
+        "interior": "vossk"
+    },
+    {
+        "id": "t12",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "T12 Depot",
+            "zh": "T12 仓库"
+        },
+        "techLevel": 4,
+        "planet": 20,
+        "looksLike": 104,
+        "interior": "terran"
+    },
+    {
+        "id": "nova_lab",
+        "system": "manticore_neox:porros",
+        "name": {
+            "en": "Nova Observatory",
+            "zh": "新星观测站"
+        },
+        "techLevel": 9,
+        "planet": 1,
+        "looksLike": 32,
+        "interior": "nivelian"
+    },
+    {
+        "id": "driftwood",
+        "system": "manticore_neox:rigant",
+        "name": {
+            "en": "Driftwood Refuge",
+            "zh": "浮木避难站"
         },
         "techLevel": 3,
-        "planet": 14,
-        "looksLike": 40,
-        "interior": "terran"
+        "planet": 12,
+        "looksLike": 31,
+        "interior": "nivelian"
     },
     {
-        "id": "spire",
-        "system": "manticore_neox:valtor",
+        "id": "the_eye",
+        "system": "manticore_neox:rigant",
         "name": {
-            "en": "Paragon Spire",
-            "zh": "典范尖塔"
+            "en": "The Eye",
+            "zh": "漩涡之眼"
+        },
+        "techLevel": 5,
+        "planet": 20,
+        "looksLike": 106,
+        "interior": "vossk"
+    },
+    {
+        "id": "bastion",
+        "system": "manticore_neox:rigant",
+        "name": {
+            "en": "Cobalt Bastion",
+            "zh": "钴蓝堡垒"
         },
         "techLevel": 10,
-        "planet": 1,
+        "planet": 3,
         "looksLike": 37,
         "interior": "terran"
     }

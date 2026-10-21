@@ -17,24 +17,45 @@
         "gateStation": "manticore_neox:haze_post"
     },
     {
-        "id": "valtor",
+        "id": "porros",
         "name": {
-            "en": "Valtor",
-            "zh": "瓦尔托"
+            "en": "Porros Nebula",
+            "zh": "波罗斯星云"
         },
         "race": 0,
         "security": 2,
         "visible": true,
         "available": "quest(manticore_maw) == 2",
         "position": [
-            22,
-            84,
-            31
+            26,
+            80,
+            32
         ],
-        "sky": 4,
+        "sky": 12,
         "gates": [
             "manticore_neox:trim"
         ],
-        "gateStation": "manticore_neox:novagate"
+        "gateStation": "manticore_neox:survey_main"
+    },
+    {
+        "id": "rigant",
+        "name": {
+            "en": "Rigant Vortex",
+            "zh": "瑞甘特漩涡"
+        },
+        "race": 1,
+        "security": 3,
+        "visible": true,
+        "available": "quest(manticore_khador) == 2",
+        "position": [
+            40,
+            92,
+            18
+        ],
+        "sky": 3,
+        "gates": [
+            "manticore_neox:porros"
+        ],
+        "gateStation": "manticore_neox:driftwood"
     }
 ]

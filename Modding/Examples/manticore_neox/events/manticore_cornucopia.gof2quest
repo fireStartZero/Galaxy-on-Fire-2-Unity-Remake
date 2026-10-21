@@ -1,0 +1,231 @@
+{
+    "title": "Manticore - Cornucopia",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_porros) == 2",
+    "variables": [
+        {
+            "name": "pieces",
+            "value": "0"
+        }
+    ],
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 7 - Cornucopia",
+                "zh": "第七章 - 丰饶角"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "The clan lets us in, but not their storage hulks. Khador's people hid their records in three of them. Take what we need and leave quietly.",
+                        "zh": "氏族放我们进去了，但不准碰他们的储存废船。卡多尔的人把记录藏在其中三艘里。拿走需要的东西，然后安静地离开。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Each hulk holds a slice of the Grey Shadow's records. Hack all three and I'll put them together.",
+                        "zh": "每艘废船里都有灰影记录的一部分。三艘都破解了，我来把它们拼起来。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "cornucopia_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:cornucopia"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:cornucopia",
+            "dock": false,
+            "objective": {
+                "en": "Fly to Cornucopia.",
+                "zh": "飞往丰饶角。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "wreck",
+            "race": "vossk",
+            "name": "Storage Hulk A",
+            "at": "-7000 0 30000"
+        },
+        {
+            "type": "wreck",
+            "race": "vossk",
+            "name": "Storage Hulk B",
+            "at": "0 4000 38000"
+        },
+        {
+            "type": "wreck",
+            "race": "vossk",
+            "name": "Storage Hulk C",
+            "at": "7000 -3000 30000"
+        },
+        {
+            "type": "on",
+            "trigger": "hacked",
+            "steps": [
+                {
+                    "type": "set",
+                    "variable": "pieces",
+                    "value": "pieces + 1"
+                },
+                {
+                    "type": "radio",
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Records recovered. {pieces} of 3.",
+                        "zh": "记录已取回。{pieces} / 3。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:cornucopia",
+            "text": {
+                "en": "Hack the three storage hulks.",
+                "zh": "破解三艘储存废船。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "pieces >= 3"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "Got it all. And bad news: someone is reading along. A bioweapons dealer called Mudshark, on Khador's payroll.",
+                "zh": "全拿到了。还有个坏消息：有人在同步读取。一个叫泥鲨的生化武器贩子，拿着卡多尔的钱。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "pirate Mudshark",
+            "text": {
+                "en": "Those files are worth more than your whole carrier. Hand them over, or breathe what I brought.",
+                "zh": "那些文件比你整艘航母都值钱。交出来，不然就尝尝我带来的东西。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 23,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Mudshark Wing"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:cornucopia",
+            "quiet": false,
+            "name": "Mudshark",
+            "ships": [
+                {
+                    "ship": 54,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Mudshark.",
+                "zh": "击败泥鲨。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:cornucopia",
+            "text": {
+                "en": "Finish off Mudshark's wing.",
+                "zh": "消灭泥鲨剩下的僚机。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Mudshark Wing) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:cornucopia",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 18000,
+            "title": {
+                "en": "Records recovered",
+                "zh": "记录已取回"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "mudshark_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Bring the records to the Manticore.",
+                "zh": "把记录带回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "The records are shipping manifests. Mhaan-Tiq, refined far past anything a mine needs, moved to T12. The dead planet.",
+                        "zh": "这些记录是货运清单。精炼程度远超任何矿场需要的光晶矿，被运往T12，那颗死去的行星。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Refined Glow. That's what tore Neox apart. If he's stockpiling more of it, we stop the shipment before it leaves.",
+                        "zh": "精炼光晶。正是它撕裂了尼奥克斯。如果他还在囤更多，我们就得在货运出发前截住它。"
+                    }
+                },
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "The clan saw the hulks opened. They will not forgive this easily. It was worth it.",
+                        "zh": "氏族看到废船被打开了。他们不会轻易原谅。但值得。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 9000,
+            "title": {
+                "en": "Chapter 7 complete",
+                "zh": "第七章 完成"
+            }
+        }
+    ]
+}

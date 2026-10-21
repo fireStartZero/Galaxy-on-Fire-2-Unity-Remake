@@ -1,0 +1,195 @@
+{
+    "title": "Manticore - Into Porros",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_maw) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE - ACT II",
+                "zh": "蝎尾狮号 - 第二幕"
+            },
+            "subtitle": {
+                "en": "Chapter 6 - Into Porros",
+                "zh": "第六章 - 深入波罗斯"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Sh'Gaal's last breath bought us one name: Khador. The Grey scientist. He built the device that shattered the sector, and he gave it to a pirate.",
+                        "zh": "希加尔用最后一口气给了我们一个名字：卡多尔。那个灰人科学家。是他造出了让星区破碎的装置，又把它交给了一个海盗。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "Khador runs a network of moles and spies. I call it the Grey Shadow. Its traffic leads into the Porros Nebula, through the jumpgate at Haze Trading Post.",
+                        "zh": "卡多尔经营着一张由内鬼和间谍组成的网络，我管它叫“灰影”。它的通讯一路通向波罗斯星云，经由薄雾贸易站的跃迁门。"
+                    }
+                },
+                {
+                    "speaker": "terran female Jalen",
+                    "text": {
+                        "en": "One of his couriers, Jaden Thee, owes half of Neo Vegas money. Desperate people talk. He flies supply runs out of Survey Main.",
+                        "zh": "他的一个信使，杰登·西，欠了新维加斯一半人的钱。走投无路的人会开口的。他从勘测总站出发跑补给。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then go and make him talk. Bring him back breathing, ace. Every thread of this net counts.",
+                        "zh": "那就去让他开口。王牌，把他活着带回来。这张网上的每一根线都很重要。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "porros_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:survey_main"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:survey_main",
+            "dock": false,
+            "objective": {
+                "en": "Jump to the Porros Nebula and fly to Survey Main.",
+                "zh": "跃迁到波罗斯星云，飞往勘测总站。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "That's his ship, and he brought friends. Knock out the escort first.",
+                "zh": "那就是他的船，他还带了帮手。先干掉护航。"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:survey_main",
+            "quiet": false,
+            "name": "Thee Escort",
+            "ships": [
+                {
+                    "ship": 2,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 23,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy Jaden Thee's escort.",
+                "zh": "消灭杰登·西的护航。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Jaden Thee",
+            "text": {
+                "en": "You think I'm scared of a carrier? I'm scared of who I work for!",
+                "zh": "你以为我怕一艘航母？我怕的是我老板！"
+            }
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:survey_main",
+            "quiet": false,
+            "name": "Jaden Thee",
+            "ships": [
+                {
+                    "ship": 22,
+                    "count": 1,
+                    "race": "terran",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Disable Jaden Thee's ship.",
+                "zh": "击瘫杰登·西的飞船。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran Jaden Thee",
+            "text": {
+                "en": "Alright! Alright! I only carried data cores. The Grey keeps his books at Cornucopia, with the Vossk. Please, don't tell him it was me.",
+                "zh": "好吧！好吧！我只是运数据核心而已。那个灰人把账目放在丰饶角，和沃斯克人放在一起。求你了，别告诉他是我说的。"
+            }
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:survey_main",
+            "on": false
+        },
+        {
+            "type": "reward",
+            "credits": 16000,
+            "title": {
+                "en": "Courier caught",
+                "zh": "信使落网"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "thee_caught"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "Cornucopia. The Vossk took that field from Starfire with fire. They do not open their doors to Terrans.",
+                        "zh": "丰饶角。沃斯克人是用火从星火公司手里夺下那片区域的。他们不会给人类开门。"
+                    }
+                },
+                {
+                    "speaker": "vossk Kyrrk Tasst",
+                    "text": {
+                        "en": "But they will open them to me. I know the clan that holds it. Fly there, and I will speak for you.",
+                        "zh": "但他们会给我开门。我认识占据那里的氏族。飞过去，我替你说话。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 8000,
+            "title": {
+                "en": "Chapter 6 complete",
+                "zh": "第六章 完成"
+            }
+        }
+    ]
+}

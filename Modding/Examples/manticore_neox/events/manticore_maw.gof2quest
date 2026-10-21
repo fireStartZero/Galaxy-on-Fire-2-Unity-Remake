@@ -192,8 +192,8 @@
             "type": "radio",
             "speaker": "vossk Sh'Gaal",
             "text": {
-                "en": "Clan Gr'Gath... falls... but the ones who paid us... they will not...",
-                "zh": "格尔加斯氏族……倒下了……但付钱给我们的那些人……他们不会……"
+                "en": "Clan Gr'Gath... falls... ask the Grey... ask Khador who built it...",
+                "zh": "格尔加斯氏族……倒下了……去问那个灰人……去问卡多尔，是谁造的……"
             }
         },
         {
@@ -249,15 +249,15 @@
                 {
                     "speaker": "terran female Saya",
                     "text": {
-                        "en": "About Sh'Gaal's last words. Sladek's payments didn't start with Sladek. They came from accounts inside Nova Defence. Inside Paragon.",
-                        "zh": "关于希加尔的遗言。斯拉德克的钱并不是他自己的。它们来自新星防务内部的账户，也就是典范集团内部。"
+                        "en": "About Sh'Gaal's last words. Khador. The Grey scientist from the old Void war. Sh'Gaal says he built the device that caused the Shattering.",
+                        "zh": "关于希加尔的遗言。卡多尔，那个参加过当年虚空战争的灰人科学家。希加尔说，引发“碎裂”的装置就是他造的。"
                     }
                 },
                 {
                     "speaker": "terran Bryce Vantok",
                     "text": {
-                        "en": "So the people who hired us to fight the pirates were paying the pirates. Of course they were.",
-                        "zh": "所以雇我们打海盗的人，同时也在给海盗付钱。当然了，还能是怎样。"
+                        "en": "Khador. Then the Shattering was never an accident. Find out where that Grey is hiding.",
+                        "zh": "卡多尔。这么说“碎裂”从来就不是意外。查出那个灰人藏在哪里。"
                     }
                 },
                 {

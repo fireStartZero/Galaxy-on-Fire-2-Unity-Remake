@@ -1,0 +1,304 @@
+{
+    "title": "Manticore - Eclipse",
+    "kind": "quest",
+    "startsWhen": "quest(manticore_bastion) == 2",
+    "steps": [
+        {
+            "type": "wait",
+            "seconds": 4
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "MANTICORE",
+                "zh": "蝎尾狮号"
+            },
+            "subtitle": {
+                "en": "Chapter 13 - Eclipse",
+                "zh": "第十三章 - 日蚀"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Last flight, ace. Eclipse is at the Eye with everything Indigo Brink has left. The Manticore's own wing flies with you.",
+                        "zh": "最后一次出击了，王牌。日蚀带着靛蓝深渊剩下的一切在漩涡之眼。蝎尾狮号自己的联队和你一起飞。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Bring her down. For the Shattering. For Hayley.",
+                        "zh": "把她打下来。为了“碎裂”。为了海莉。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "checkpoint",
+            "name": "eclipse_briefed"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:the_eye"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:the_eye",
+            "dock": false,
+            "objective": {
+                "en": "Fly to the Eye.",
+                "zh": "飞往漩涡之眼。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
+        },
+        {
+            "type": "spawn",
+            "ship": 5,
+            "race": "terran",
+            "count": 3,
+            "behaviour": "friendly",
+            "name": "Manticore Wing"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:the_eye",
+            "quiet": false,
+            "name": "Indigo Fighter",
+            "ships": [
+                {
+                    "ship": 54,
+                    "count": 3,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                },
+                {
+                    "ship": 9,
+                    "count": 2,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Destroy Indigo Brink's fighters.",
+                "zh": "消灭靛蓝深渊的战机。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Eclipse",
+            "text": {
+                "en": "Bryce's little carrier. Still loyal. Let's see how loyal your machines are.",
+                "zh": "布莱斯的小航母。还这么忠诚。看看你们的机器有多忠诚吧。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "She's inside our wing's systems! They're locking onto you! Don't shoot back, I need sixty seconds to purge her.",
+                "zh": "她侵入了我们联队的系统！他们正在锁定你！别还击，我需要六十秒来清除她。"
+            }
+        },
+        {
+            "type": "shipattack",
+            "ship": "Manticore Wing",
+            "target": "player"
+        },
+        {
+            "type": "timer",
+            "seconds": 60,
+            "label": {
+                "en": "Purge",
+                "zh": "清除"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:the_eye",
+            "text": {
+                "en": "Survive the hacked wing for 60 seconds. Don't destroy them.",
+                "zh": "在被劫持的联队攻击下坚持60秒，不要击毁他们。"
+            }
+        },
+        {
+            "type": "wait",
+            "seconds": 60
+        },
+        {
+            "type": "timer",
+            "stop": true
+        },
+        {
+            "type": "if",
+            "condition": "alive(Manticore Wing) == 0",
+            "then": [
+                {
+                    "type": "fail",
+                    "title": {
+                        "en": "You destroyed your own wing.",
+                        "zh": "你击毁了自己的联队。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "shipaction",
+            "ship": "Manticore Wing",
+            "action": "resume"
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Jalen",
+            "text": {
+                "en": "Purge complete. She's out. Sorry, everyone. I'm back.",
+                "zh": "清除完成。她被赶出去了。抱歉，各位，我回来了。"
+            }
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Eclipse",
+            "text": {
+                "en": "Clever toy. Then I'll do it the old way.",
+                "zh": "聪明的玩具。那我就用老办法。"
+            }
+        },
+        {
+            "type": "spawn",
+            "ship": 63,
+            "race": "pirate",
+            "count": 2,
+            "behaviour": "enemy",
+            "name": "Eclipse Guard"
+        },
+        {
+            "type": "fight",
+            "station": "manticore_neox:the_eye",
+            "quiet": false,
+            "name": "Eclipse",
+            "ships": [
+                {
+                    "ship": 44,
+                    "count": 1,
+                    "race": "pirate",
+                    "behaviour": "enemy"
+                }
+            ],
+            "objective": {
+                "en": "Defeat Eclipse.",
+                "zh": "击败日蚀。"
+            }
+        },
+        {
+            "type": "objective",
+            "station": "manticore_neox:the_eye",
+            "text": {
+                "en": "Destroy Eclipse's last guards.",
+                "zh": "消灭日蚀最后的护卫。"
+            }
+        },
+        {
+            "type": "waituntil",
+            "condition": "alive(Eclipse Guard) == 0"
+        },
+        {
+            "type": "questorbit",
+            "station": "manticore_neox:the_eye",
+            "on": false
+        },
+        {
+            "type": "radio",
+            "speaker": "terran female Eclipse",
+            "text": {
+                "en": "Neox was never yours... it was never anyone's...",
+                "zh": "尼奥克斯从来不属于你们……它从来不属于任何人……"
+            }
+        },
+        {
+            "type": "reward",
+            "credits": 40000,
+            "title": {
+                "en": "Eclipse defeated",
+                "zh": "日蚀被击败"
+            }
+        },
+        {
+            "type": "checkpoint",
+            "name": "eclipse_down"
+        },
+        {
+            "type": "goto",
+            "station": "manticore_neox:manticore",
+            "dock": true,
+            "objective": {
+                "en": "Return to the Manticore.",
+                "zh": "返回蝎尾狮号。"
+            }
+        },
+        {
+            "type": "title",
+            "title": {
+                "en": "THE END",
+                "zh": "完"
+            },
+            "subtitle": {
+                "en": "The Manticore holds the line.",
+                "zh": "蝎尾狮号守住了防线。"
+            }
+        },
+        {
+            "type": "dialog",
+            "pages": [
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Eclipse is gone, and the Cobalt Lancers with her. But half the sector is rubble, and those planets aren't coming back.",
+                        "zh": "日蚀没了，钴蓝枪骑兵也随她而去。但星区有一半成了废墟，那些行星再也回不来了。"
+                    }
+                },
+                {
+                    "speaker": "Khador",
+                    "text": {
+                        "en": "I will stay. I owe Neox a great deal, and I can still undo some of it. Not all.",
+                        "zh": "我会留下。我欠尼奥克斯太多了，我还能挽回一些。不是全部。"
+                    }
+                },
+                {
+                    "speaker": "terran female Saya",
+                    "text": {
+                        "en": "Jalen found something in the Eye's records. A list of prisoners moved deeper into the Vortex. One of the names is Snocom.",
+                        "zh": "贾伦在漩涡之眼的记录里找到了一样东西。一份被转移到漩涡更深处的俘虏名单。其中一个名字是斯诺科姆。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Then the Manticore isn't done. Indigo Brink's remnants still fly, and we have a pilot to bring home.",
+                        "zh": "那蝎尾狮号的任务还没结束。靛蓝深渊的残党还在飞，而我们还有一名飞行员要带回家。"
+                    }
+                },
+                {
+                    "speaker": "terran Bryce Vantok",
+                    "text": {
+                        "en": "Thank you, ace. Whatever comes next, this ship flies with you.",
+                        "zh": "谢谢你，王牌。不管接下来是什么，这艘船都和你一起飞。"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "complete",
+            "reward": 50000,
+            "title": {
+                "en": "Manticore complete",
+                "zh": "蝎尾狮号 完成"
+            }
+        }
+    ]
+}
