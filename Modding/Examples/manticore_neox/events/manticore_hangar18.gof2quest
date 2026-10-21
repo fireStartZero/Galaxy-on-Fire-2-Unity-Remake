@@ -1,6 +1,7 @@
 {
     "title": "Manticore - Hangar 18",
     "kind": "quest",
+    "startsWhen": "never",
     "steps": [
         {
             "type": "title",
@@ -34,7 +35,7 @@
                     "speaker": "terran female Saya",
                     "text": {
                         "en": "Saya, chief of everything that flies around here. I went over your Inflict. Guns are calibrated, shield holds. Bring her back with fewer holes than last time, okay?",
-                        "zh": "我是萨雅，这里所有会飞的东西都归我管。你的“施虐者”我检查过了，武器校准好了，护盾也撑得住。下次带回来时少几个窟窿，行吗？"
+                        "zh": "我是萨雅，这里所有会飞的东西都归我管。你的Inflict我检查过了，武器校准好了，护盾也撑得住。下次带回来时少几个窟窿，行吗？"
                     }
                 },
                 {
@@ -62,6 +63,10 @@
                 "en": "Fly to Phoenix Station and meet the Starfire Survey freighter.",
                 "zh": "飞往凤凰空间站，与星火勘测货船会合。"
             }
+        },
+        {
+            "type": "wait",
+            "seconds": 8
         },
         {
             "type": "spawn",
@@ -113,8 +118,8 @@
             "type": "radio",
             "speaker": "vossk Vh'Arus Tengs",
             "text": {
-                "en": "Little mercenary. This gate belongs to D'Rak, and so does that ship. I will take both, and your hull as a trophy.",
-                "zh": "小小的雇佣兵。这道星门属于德拉克，那艘船也是。两样我都要拿走，再把你的船壳当作战利品。"
+                "en": "Little mercenary. This station pays its tribute to D'Rak, and so will that freighter. I will take both, and your hull as a trophy.",
+                "zh": "小小的雇佣兵。这座空间站向德拉克进贡，那艘货船也得交。两样我都要拿走，再把你的船壳当作战利品。"
             }
         },
         {
